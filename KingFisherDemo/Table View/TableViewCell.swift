@@ -42,7 +42,7 @@ class TableViewCell: UITableViewCell {
         //Set image view with kingfisher
         
         productName.text = product.productName
-        productPrice.text = String(product.productPrice)
+        productPrice.text = ("$\(String(product.productPrice))")
         productHealth.text = product.productHealth
     }
 
