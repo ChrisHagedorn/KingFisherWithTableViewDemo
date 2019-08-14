@@ -7,98 +7,184 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
+
 
 var product: [Product] = []
 var row = 0
 
-class TableViewController: UITableViewController {
-    
 
+class TableViewController: UITableViewController, UISearchBarDelegate {
+    @IBOutlet weak var headerView: ProductHeaderView!
+    @IBAction func sort(_ sender: UIButton) {
+        isSorted = true
+        
+    }
+    @IBAction func edit(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
+    var ref: DatabaseReference!
+    var databaseHandle:DatabaseHandle?
+    var dataArray = [Product]()
+    
+    var isSearching = false
+    var isSorted = false
+    var filteredData = [Product]()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        product = createArray()
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
+        //Set database reference
+        ref = Database.database().reference()
+        databaseHandle = ref.child("masterSheet").observe(.value) { (snapshot) in
+          
+            
+            guard let rawData = snapshot.value as? [AnyObject] else { return }
+            
+            
+            for item in rawData {
+                guard let itemArray = item as? [String: AnyObject] else { continue }
+               
+                let pro = Product()
+                if itemArray.count > 0 {
+                    pro.productId = itemArray["id"] as? Int
+                    
+                }
+                if itemArray.count > 1 {
+                    pro.productName = itemArray["name"] as? String
+                    
+                }
+                
+                if itemArray.count > 2 {
+                    pro.productHealth = itemArray["health"] as? String
+                }
+                
+                if itemArray.count > 3 {
+                    pro.productPrice = itemArray["price"] as? Int
+                }
+                
+                if itemArray.count > 4 {
+                    pro.productImage = itemArray["url"] as? String
+                }
+                
+                
+                product.append(pro)
+            }
+            
+            self.tableView.reloadData()
+            
+            self.getData()
+            
+            
+        }
     }
     
-    func createArray() -> [Product] { //Method will read from Google Database later
-        
-        let product1 = Product(productName: "The Green Apple", productHealth: "Healthy", productPrice: 20, productImage: "https://fortmyersoliveoil.com/wp-content/uploads/2018/05/apple.jpg")
-        let product2 = Product(productName: "The Original Orange", productHealth: "Healthy", productPrice: 30, productImage: "https://i.imgur.com/VPjrc6r.jpg")
-         let product3 = Product(productName: "The Big Banana", productHealth: "Very Big", productPrice: 40, productImage: "https://i.imgur.com/8lE9Gmc.jpg")
-        let product4 = Product(productName: "The Beefy Burger", productHealth: "Very Healthy", productPrice: 50, productImage: "https://ak9.picdn.net/shutterstock/videos/4198369/thumb/8.jpg")
-        let product5 = Product(productName: "Peanut Butter", productHealth: "Crunchy", productPrice: 60, productImage: "https://pinchofyum.com/wp-content/uploads/Homemade-Peanut-Butter-Recipe.jpg")
-        let product6 = Product(productName: "Bubbles", productHealth: "Uhh", productPrice: 70, productImage: "https://ichef.bbci.co.uk/news/660/cpsprodpb/B141/production/_106077354_gettyimages-936748654.jpg")
-        
-        
-        return[product1, product2, product3, product4, product5, product6]
-        
+    func getData() {
+        // favourite: save to firebase not in useraccount
+        // new node: favourite, save your accountId and food id
+        // favourite/
+        //      accountId
+        //          foodId: 1
+        //          food id: 1
+        // get data from firebase
+        headerView.datasource = [
+            Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+            Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
+        ]
     }
-
+    
+    
+    
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let item = product[sourceIndexPath.row]
+        product.remove(at: sourceIndexPath.row)
+        product.insert(item, at: destinationIndexPath.row)
+    }
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isSearching {
+            return filteredData.count
+        }
+        
         return product.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let products = product[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell" ) as! TableViewCell
-        cell.layer.borderWidth = 10
-        cell.layer.borderColor = #colorLiteral(red: 0.9600740075, green: 0.9602344632, blue: 0.9600527883, alpha: 1)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell" ) as? TableViewCell {
+            var products: Product
             
-        cell.setProduct(product: products)
-        return cell
+            if isSearching{
+                products = filteredData[indexPath.row]
+                
+            }else{
+                products = product[indexPath.row]
+            }
+            
+            //Sorts by product price
+            if isSorted{
+                product.sort(by: { $0.productPrice! < $1.productPrice! })
+                products = product[indexPath.row]
+                
+          //      let sortedArray = product.sort(by: { $0.productPrice! < $1.productPrice! })
+         //       products = sortedArray[indexPath.row]
+                //TODO: Upon clicking the sort function, have the row identifier match up fo product view controller
+            }else{
+                products = product[indexPath.row]
+            }
+            
+            //Sorts by alphabetical:
+            //product.sorted(by: { $0.productName.lowercased()! < $1.productName.lowercased() })
+            
+            //Sorts by Type:
+            //product.sorted(by: { $0.productHealth.lowercased()! < $1.productHealth.lowercased() })
+ 
+            
+            cell.setProduct(product: products)
+            cell.layer.borderWidth = 10
+            cell.layer.borderColor = #colorLiteral(red: 0.9600740075, green: 0.9602344632, blue: 0.9600527883, alpha: 1)
+            return cell
+        }else{
+            return UITableViewCell()
+        }
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        row = indexPath.row
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        if searchBar.text == nil || searchBar.text == "" {
+            isSearching = false
+            view.endEditing(true)
+            tableView.reloadData()
+        }else{
+            isSearching = true
+            filteredData = product.filter({
+                
+                if $0.productName!.lowercased().contains(searchBar.text!.lowercased())
+                    || $0.productHealth!.lowercased().contains(searchBar.text!.lowercased()) == true {
+                    return true
+                }else{
+                    return false
+                    //TODO: 
+
+
+                }
+            })
+            tableView.reloadData()
+        }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }

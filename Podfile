@@ -8,5 +8,10 @@ target 'KingFisherDemo' do
   # Pods for KingFisherDemo
 
 pod 'Kingfisher'
+pod 'Firebase/Analytics'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end

@@ -18,31 +18,34 @@ class TableViewCell: UITableViewCell {
     
     
     func setProduct(product: Product) {
-        let url = URL(string: product.productImage)
-        let processor = DownsamplingImageProcessor(size: productImageView.bounds.size)
-        productImageView.kf.indicatorType = .activity
-        productImageView.kf.setImage(
-            with: url,
-            placeholder: UIImage(named: "placeholderImage"),
-            options: [
-                .processor(processor),
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(1)),
-                .cacheOriginalImage
-            ])
-        {
-            result in
-            switch result {
-            case .success(let value):
-                print("Task done for: \(value.source.url?.absoluteString ?? "")")
-            case .failure(let error):
-                print("Job failed: \(error.localizedDescription)")
+        if let image = product.productImage {
+            let url = URL(string: image)
+            let processor = DownsamplingImageProcessor(size: productImageView.bounds.size)
+            productImageView.kf.indicatorType = .activity
+            productImageView.kf.setImage(
+                with: url,
+                placeholder: UIImage(named: "placeholderImage"),
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ])
+            {
+                result in
+                switch result {
+                case .success(let value):
+                    print("Task done for: \(value.source.url?.absoluteString ?? "")")
+                case .failure(let error):
+                    print("Job failed: \(error.localizedDescription)")
+                }
             }
         }
+        
         //Set image view with kingfisher
         
         productName.text = product.productName
-        productPrice.text = ("$\(String(product.productPrice))")
+        productPrice.text = ("$\(String(product.productPrice ?? 0))")
         productHealth.text = product.productHealth
     }
 

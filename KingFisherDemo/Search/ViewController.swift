@@ -11,6 +11,7 @@ import Kingfisher
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var txtLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
 
@@ -39,7 +40,11 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    public func updateView(with: String){
+        txtLabel.text = with
+    }
 
 }
+
 

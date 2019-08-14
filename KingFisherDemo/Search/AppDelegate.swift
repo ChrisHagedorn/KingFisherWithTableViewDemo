@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        let ref = Database.database().reference()
+        ref.child("masterSheet/0").observeSingleEvent(of: .value) { (snapshot) in
+            let name = snapshot.value as? String
+            let unrwaped = name ?? "Nil"
+            print(unrwaped)
+        }
+
+        
         // Override point for customization after application launch.
         return true
     }

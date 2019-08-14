@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>237294570048-m2qlqfepvant71r2id2q5toqsbhctss2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.237294570048-m2qlqfepvant71r2id2q5toqsbhctss2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC8M0Ev3njoCiWCx25lMdQZX_9CO3jNKPE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>237294570048</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.chrisHagedorn.KingFisherDemo</string>
+	<key>PROJECT_ID</key>
+	<string>sheetsdemo-5882e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>sheetsdemo-5882e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:237294570048:ios:8a026f5b98d08838</string>
+	<key>DATABASE_URL</key>
+	<string>https://sheetsdemo-5882e.firebaseio.com</string>
+</dict>
+</plist>

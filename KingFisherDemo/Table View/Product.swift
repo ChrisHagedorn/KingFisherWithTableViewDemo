@@ -10,16 +10,25 @@ import Foundation
 import UIKit
 
 class Product {
-    var productName: String
-    var productHealth: String
-    var productPrice: Int
-    var productImage: String
+    var productId: Int?
+    var productName: String?
+    var productHealth: String?
+    var productPrice: Int?
+    var productImage: String?
     
-    init(productName: String, productHealth: String, productPrice: Int, productImage: String ){
+    init(productId: Int, productName: String, productHealth: String, productPrice: Int, productImage: String ){
+        self.productId = productId
         self.productName = productName
         self.productHealth = productHealth
         self.productPrice = productPrice
         self.productImage = productImage
         
     }
+    
+    init() {
+        // empty one to parse when you don't know exactly data
+        // should use optional instead of data. ok
+    }
+    
 }
+
