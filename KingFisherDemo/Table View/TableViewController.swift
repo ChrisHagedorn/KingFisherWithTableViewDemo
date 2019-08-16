@@ -38,6 +38,7 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
         
         tableView.delegate = self
         tableView.dataSource = self
+        headerView.delegate = self
         //Set database reference
         ref = Database.database().reference()
         databaseHandle = ref.child("masterSheet").observe(.value) { (snapshot) in
@@ -187,4 +188,12 @@ class TableViewController: UITableViewController, UISearchBarDelegate {
     }
     
     
+}
+
+extension TableViewController: ProductHeaderDelegate {
+    func didTapShoppingCart() {
+        print("Cart Button 1 Clicked")
+        performSegue(withIdentifier: "shoppingCart", sender: self)
+        print("Cart Button Clicked")
+    }
 }
