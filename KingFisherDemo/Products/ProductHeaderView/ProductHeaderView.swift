@@ -14,17 +14,17 @@ protocol ProductHeaderDelegate {
 
 class ProductHeaderView: UIView {
     
-
-    @IBAction func shoppingCart(_ sender: UIButton) {
-        //TODO: Move to shoping cart view
+    
+    @IBAction func shoppingCart(_ sender: UIButton) { //Shopping Cart Segue
         delegate?.didTapShoppingCart()
-        print("Tapped po")
     }
+    
     var delegate: ProductHeaderDelegate?
     var datasource = [Product]() { didSet {
         collectionView.reloadData()
         }}
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()
