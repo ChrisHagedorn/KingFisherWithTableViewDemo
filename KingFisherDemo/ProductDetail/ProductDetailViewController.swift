@@ -8,7 +8,8 @@
 import UIKit
 import Kingfisher
 
-var cartId: [Product] = []
+var itemsInCart: [Product] = []
+
 
 class ProductDetailViewController: UIViewController {
     static func create() -> ProductDetailViewController {
@@ -16,7 +17,7 @@ class ProductDetailViewController: UIViewController {
     }
     
     var data: Product?
-    
+
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -25,8 +26,9 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productDescription: UILabel!
     
     @IBAction func addToCart(_ sender: Any) {
-        //cartId.append(product[row])
-        //print("Added \(product[row].productName ?? "fred") to Cart")
+        itemsInCart.append(data!)
+        print("Added \(data!.productName ?? "fred") to Cart")
+        
     }
     
     override func viewDidLoad() {

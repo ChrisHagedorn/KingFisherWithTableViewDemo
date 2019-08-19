@@ -16,8 +16,6 @@ class ShoppingCartFooter: UIView {
     @IBOutlet weak var shippingLabel: UILabel!
     @IBAction func buttonClickled(_ sender: UIButton) {
         
-        
-        
     }
     
     override func awakeFromNib() {

@@ -17,8 +17,8 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var headerView: ShoppingCartHeader!
     //TODO: Send headerview.delegate back to backToHome segue
     
-    let product = cartId
-
+    var product = itemsInCart
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
