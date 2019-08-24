@@ -11,20 +11,16 @@ import FirebaseDatabase
 
 class ProductsController: UITableViewController {
     @IBOutlet weak var headerView: ProductHeaderView!
-    @IBAction func sort(_ sender: UIButton) {
-        
-    }
     
     var ref: DatabaseReference!
     var databaseHandle:DatabaseHandle?
     var datasource = [Product]() { didSet {
-            tableView.reloadData()
+        tableView.reloadData()
         }
     }
     var isSearching = false
-
-    var originalDatasource = [Product]()
     
+    var originalDatasource = [Product]()
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -36,14 +32,14 @@ class ProductsController: UITableViewController {
         //Set database reference
         ref = Database.database().reference()
         databaseHandle = ref.child("masterSheet").observe(.value) { (snapshot) in
-          
+            
             
             guard let rawData = snapshot.value as? [AnyObject] else { return }
             
             var products = [Product]()
             for item in rawData {
                 guard let itemArray = item as? [String: AnyObject] else { continue }
-               
+                
                 let pro = Product()
                 if itemArray.count > 0 {
                     pro.productId = itemArray["id"] as? Int
@@ -51,7 +47,6 @@ class ProductsController: UITableViewController {
                 }
                 if itemArray.count > 1 {
                     pro.productName = itemArray["name"] as? String
-                    
                 }
                 
                 if itemArray.count > 2 {
@@ -73,7 +68,12 @@ class ProductsController: UITableViewController {
             self.originalDatasource = products
             self.getData()
         }
+        
+       
+        
+        
     }
+    
     
     func setupView() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sort", style: .done, target: self, action: #selector(showSortMenu))
@@ -83,7 +83,7 @@ class ProductsController: UITableViewController {
     @objc func showSortMenu() {
         let controller = UIAlertController(title: "Sorting", message: "Select your sort criteria", preferredStyle: .alert)
         controller.addAction(UIAlertAction(title: "Name", style: .default, handler: { _ in
-                self.datasource.sort(by: { ($0.productName ?? "") < ($1.productName ?? "") })
+            self.datasource.sort(by: { ($0.productName ?? "") < ($1.productName ?? "") })
         }))
         
         controller.addAction(UIAlertAction(title: "Price", style: .default, handler: { _ in
@@ -100,17 +100,40 @@ class ProductsController: UITableViewController {
     }
     
     func getData() {
-        headerView.datasource = [
-            Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-            Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-           Product(productId: 1123123, productName: "", productHealth: "", productPrice: 0, productImage: "https://gousto.gurucloud.co.uk/wp-content/uploads/2018/01/hero-image-1.jpg"),
-        ]
+        
+        databaseHandle = ref.child("featuredProducts").observe(.value) { (snapshot) in
+            
+            guard let rawData = snapshot.value as? [AnyObject] else { return }
+            
+            var featuredProducts = [Product]()
+            for item in rawData {
+                guard let itemArray = item as? [String: AnyObject] else { continue }
+                
+                let pro = Product()
+                if itemArray.count > 0 {
+                    pro.productId = itemArray["id"] as? Int
+                }
+                if itemArray.count > 1 {
+                    pro.productName = itemArray["name"] as? String
+                }
+                if itemArray.count > 2 {
+                    pro.productHealth = itemArray["health"] as? String
+                }
+                
+                if itemArray.count > 3 {
+                    pro.productPrice = itemArray["price"] as? Int
+                }
+                
+                if itemArray.count > 4 {
+                    pro.productImage = itemArray["url"] as? String
+                }
+                
+                featuredProducts.append(pro)
+            }
+            
+            self.headerView.datasource = featuredProducts
+        }
+        //TODO: Add new data to original datasource and sync with firebase
     }
 }
 

@@ -93,7 +93,7 @@
                     <navigationItem key="navigationItem" id="hGF-80-Cuo">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bhv-GL-4pe">
-                            <rect key="frame" x="168" y="7" width="78" height="30"/>
+                            <rect key="frame" x="148.5" y="7" width="78" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="Sort"/>
                             <connections>
@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBi-PL-yUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1613.5999999999999" y="1058.3208395802101"/>
+            <point key="canvasLocation" x="264.80000000000001" y="1058.3208395802101"/>
         </scene>
     </scenes>
 </document>

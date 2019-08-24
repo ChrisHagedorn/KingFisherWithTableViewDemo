@@ -43,3 +43,15 @@ extension UIView {
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
 }
+
+extension Array where Element: Equatable {
+    mutating func removeDuplicates() {
+        var result = [Element]()
+        for value in self {
+            if !result.contains(value) {
+                result.append(value)
+            }
+        }
+        self = result
+    }
+}

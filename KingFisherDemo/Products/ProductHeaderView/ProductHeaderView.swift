@@ -61,5 +61,10 @@ extension ProductHeaderView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 10
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let controller = ProductDetailViewController.create()
+        controller.data = datasource[indexPath.row]
+        //TODO: Move to new controller by pushing it onto stack
+        }
     
 }

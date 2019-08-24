@@ -27,7 +27,7 @@ class Product {
     
     init() {
         // empty one to parse when you don't know exactly data
-        // should use optional instead of data. ok
+        // should use optional instead of data.
     }
     
 }
