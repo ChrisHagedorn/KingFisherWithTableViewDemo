@@ -90,17 +90,6 @@
                             <outlet property="delegate" destination="Wdt-SG-DEh" id="uh0-eS-OZq"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hGF-80-Cuo">
-                        <nil key="title"/>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bhv-GL-4pe">
-                            <rect key="frame" x="148.5" y="7" width="78" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Sort"/>
-                            <connections>
-                                <action selector="sort:" destination="Wdt-SG-DEh" eventType="touchUpInside" id="p3y-j2-I19"/>
-                            </connections>
-                        </button>
-                    </navigationItem>
                     <connections>
                         <outlet property="headerView" destination="Xkj-xB-Puk" id="qLp-dw-GV8"/>
                     </connections>

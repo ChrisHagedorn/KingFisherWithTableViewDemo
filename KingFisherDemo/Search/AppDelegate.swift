@@ -10,14 +10,13 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        FirebaseApp.configure()
+     //   FirebaseApp.configure()
 //        let ref = Database.database().reference()
 //        ref.child("masterSheet/0").observeSingleEvent(of: .value) { (snapshot) in
 //            let name = snapshot.value as? String
@@ -25,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print(unrwaped)
 //        }
         //window?.rootViewController = UIViewController()
+        print("Lol")
         
         
         return true

@@ -99,4 +99,9 @@ class CategoriesDetailController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 312
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = ProductDetailViewController.create()
+        controller.data = datasource[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

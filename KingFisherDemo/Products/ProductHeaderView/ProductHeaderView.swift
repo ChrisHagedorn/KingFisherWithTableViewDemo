@@ -20,6 +20,8 @@ class ProductHeaderView: UIView {
     }
     
     var delegate: ProductHeaderDelegate?
+    
+    
     var datasource = [Product]() { didSet {
         collectionView.reloadData()
         }}
@@ -64,7 +66,8 @@ extension ProductHeaderView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = ProductDetailViewController.create()
         controller.data = datasource[indexPath.row]
-        //TODO: Move to new controller by pushing it onto stack
+        (superview?.next as? UIViewController)?.navigationController?.pushViewController(controller, animated: true)
+        //TODO: Double check with Ky
         }
     
 }

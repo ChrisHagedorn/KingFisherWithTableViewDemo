@@ -10,13 +10,24 @@ import UIKit
 
 class ShoppingCartFooter: UIView {
     
+    @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var shippingLabel: UILabel!
+    
     @IBAction func buttonClickled(_ sender: UIButton) {
         //Call checkout view controller create
+        let vc = OrderInfoController.create()
+       (superview?.next as? UIViewController)?.navigationController?.pushViewController(vc, animated: true)
+
+        
+        //Hide button
     }
+    func buttonHide(){
+        nextButton.isHidden = true
+    }
+    
     //TODO: Move to checkout view controller
 //    static func create() ->  CheckoutViewController {
 //        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CheckoutViewController") as! CheckoutViewController

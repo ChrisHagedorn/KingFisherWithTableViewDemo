@@ -21,14 +21,16 @@ class ProductsController: UITableViewController {
     var isSearching = false
     
     var originalDatasource = [Product]()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        title = "The Green Grocer"
         setupView()
         tableView.delegate = self
         tableView.dataSource = self
         headerView.delegate = self
+        
         //Set database reference
         ref = Database.database().reference()
         databaseHandle = ref.child("masterSheet").observe(.value) { (snapshot) in
