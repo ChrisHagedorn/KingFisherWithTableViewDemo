@@ -59,7 +59,7 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             print("User is signed in with Firebase")
-            self.window?.rootViewController!.performSegue(withIdentifier: "moveToTabBar", sender: nil)
+ self.window?.rootViewController!.performSegue(withIdentifier: "moveToTabBar", sender: nil)
         }
         
         

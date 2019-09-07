@@ -85,7 +85,6 @@
                                         </state>
                                         <connections>
                                             <action selector="confirmOrder:" destination="HyX-dy-mvM" eventType="touchUpInside" id="LoA-GS-HwA"/>
-                                            <action selector="orderPressed:" destination="HyX-dy-mvM" eventType="touchUpInside" id="v8Y-Bs-wac"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -105,7 +104,6 @@
                         <viewLayoutGuide key="safeArea" id="GFx-Bg-cGU"/>
                     </view>
                     <connections>
-                        <outlet property="confirmOrder" destination="AaL-Hh-EGk" id="UHn-pT-vNH"/>
                         <outlet property="footerView" destination="OSN-9u-PhN" id="MX6-hE-Mwn"/>
                     </connections>
                 </viewController>
