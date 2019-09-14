@@ -25,6 +25,14 @@ class Product {
         
     }
     
+    init(rawData: AnyObject) {
+        productId = rawData["id"] as? Int
+        productName = rawData["name"] as? String
+        productHealth = rawData["health"] as? String
+        productPrice = rawData["price"] as? Int
+        productImage = rawData["url"] as? String
+    }
+    
     init() {
         // empty one to parse when you don't know exactly data
         // should use optional instead of data.

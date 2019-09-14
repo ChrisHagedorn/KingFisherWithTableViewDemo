@@ -18,10 +18,37 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var window: UIWindow?
     
     
+    func changeData() {
+        Database.database().reference().child("products").observeSingleEvent(of: .value) { (snapshot) in
+            guard let rawData = snapshot.value as? [[String: Any]] else { return }
+            Database.database().reference().child("products").removeValue()
+
+            for item in rawData {
+                let productId = "product_\(item["id"] as! Int)"
+                Database.database().reference().child("products")
+                    .child(String(productId)).setValue(item)
+            }
+        }
+        
+        Database.database().reference().child("featuredProducts").observeSingleEvent(of: .value) { (snapshot) in
+            guard let rawData = snapshot.value as? [[String: Any]] else { return }
+            Database.database().reference().child("featuredProducts").removeValue()
+            
+            for item in rawData {
+                let productId = "product_\(item["id"] as! Int)"
+                Database.database().reference().child("featuredProducts")
+                    .child(String(productId)).setValue(item)
+            }
+        }
+        
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         FirebaseApp.configure()
         
+        changeData()
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -46,7 +73,10 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
             let email = user.profile.email
-            print(fullName)
+            print(fullName!)
+            print(email!)
+            var currentCustomer = Customer(userId: userId!, idToken: idToken!, fullName: fullName!, givenName: givenName!, familyName: familyName!, email: email!)
+            
         }
         
         // Firebase sign in

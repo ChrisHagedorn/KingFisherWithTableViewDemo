@@ -9,6 +9,11 @@
 import UIKit
 import FirebaseDatabase
 
+class DataStore {
+    static var products = [Product]()
+}
+
+
 class ProductsController: UITableViewController {
     @IBOutlet weak var headerView: ProductHeaderView!
     
@@ -16,6 +21,7 @@ class ProductsController: UITableViewController {
     var databaseHandle:DatabaseHandle?
     var datasource = [Product]() { didSet {
         tableView.reloadData()
+        DataStore.products = datasource
         }
     }
     var isSearching = false
@@ -32,44 +38,7 @@ class ProductsController: UITableViewController {
         headerView.delegate = self
         
         //Set database reference
-        ref = Database.database().reference()
-        databaseHandle = ref.child("masterSheet").observe(.value) { (snapshot) in
-            
-            
-            guard let rawData = snapshot.value as? [AnyObject] else { return }
-            
-            var products = [Product]()
-            for item in rawData {
-                guard let itemArray = item as? [String: AnyObject] else { continue }
-                
-                let pro = Product()
-                if itemArray.count > 0 {
-                    pro.productId = itemArray["id"] as? Int
-                    
-                }
-                if itemArray.count > 1 {
-                    pro.productName = itemArray["name"] as? String
-                }
-                
-                if itemArray.count > 2 {
-                    pro.productHealth = itemArray["health"] as? String
-                }
-                
-                if itemArray.count > 3 {
-                    pro.productPrice = itemArray["price"] as? Int
-                }
-                
-                if itemArray.count > 4 {
-                    pro.productImage = itemArray["url"] as? String
-                }
-                
-                
-                products.append(pro)
-            }
-            self.datasource = products
-            self.originalDatasource = products
-            self.getData()
-        }
+        getData()
         
        
         
@@ -101,41 +70,45 @@ class ProductsController: UITableViewController {
         present(controller, animated: true)
     }
     
-    func getData() {
-        
-        databaseHandle = ref.child("featuredProducts").observe(.value) { (snapshot) in
-            
-            guard let rawData = snapshot.value as? [AnyObject] else { return }
-            
-            var featuredProducts = [Product]()
-            for item in rawData {
-                guard let itemArray = item as? [String: AnyObject] else { continue }
+    func getProducts(completion: @escaping () -> Void) {
+        Database.database().reference().child("products")
+            .observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
+                guard let rawData = snapshot.value as? [String: AnyObject] else { return }
+                let products = Array(rawData.values).map({ return Product(rawData: $0) })
+                self?.datasource = products
+                self?.originalDatasource = products
+                completion()
+        })
+    }
+    
+    
+    func getFeatureProducts() {
+        Database.database().reference()
+            .child("featuredProducts").observeSingleEvent(of: .value) { (snapshot) in
+                guard let rawData = snapshot.value as? [String: AnyObject] else { return }
+                // convert datasource to array of id
+                // run loop for feature products
+                // if current item == datasource item
+                let featured = Array(rawData.values).map({ return Product(rawData: $0) })
+                for item in featured {
+                    for product in self.datasource {
+                        if item.productId == product.productId {
+                            item.productImage = product.productImage
+                        }
+                    }
+                }
                 
-                let pro = Product()
-                if itemArray.count > 0 {
-                    pro.productId = itemArray["id"] as? Int
-                }
-                if itemArray.count > 1 {
-                    pro.productName = itemArray["name"] as? String
-                }
-                if itemArray.count > 2 {
-                    pro.productHealth = itemArray["health"] as? String
-                }
                 
-                if itemArray.count > 3 {
-                    pro.productPrice = itemArray["price"] as? Int
-                }
                 
-                if itemArray.count > 4 {
-                    pro.productImage = itemArray["url"] as? String
-                }
-                
-                featuredProducts.append(pro)
-            }
-            
-            self.headerView.datasource = featuredProducts
+                self.headerView.datasource = featured
         }
-        //TODO: Add new data to original datasource and sync with firebase
+    }
+    
+    func getData() {
+        getProducts(completion: {[weak self] in
+            self?.getFeatureProducts()
+        })
+        
     }
 }
 

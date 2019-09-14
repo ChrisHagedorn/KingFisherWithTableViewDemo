@@ -23,7 +23,10 @@ class ProductDetailViewController: UIViewController {
     var databaseHandle: DatabaseHandle?
     var dataLength: Int?
     var sourceFavorites: [Product] = []
-
+    var isFavorite = false { didSet {
+        updateFavoriteIcon()
+        }}
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productPrice: UILabel!
@@ -31,32 +34,20 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var productHealth: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     
-    @IBAction func addToFavorites(_ sender: Any) {
-        
-        ref = Database.database().reference()
-        guard let userKey = Auth.auth().currentUser?.uid else {return}
-        
-        for index in 0...dataLength! - 1{
-            if sourceFavorites[index].productId! == data?.productId {
-                print ("Item is in array")
-                break
-                
-            }else{
-               print("Added \(data!.productName ?? "fred") to Favorites")
-                ref.child("favorites").child(userKey).child(String(dataLength! + 1)).setValue([
-                    "id": data!.productId,
-                    "name": data!.productName,
-                    "health": data!.productHealth,
-                    "price": data!.productPrice,
-                    "url": data!.productImage, ])
-            }
-        }
 
+    var favoriteButton = UIButton()
+    
+    @IBAction func addToFavorites() {
+        isFavorite = !isFavorite
+        ref = Database.database().reference().child("favourites")
+        guard let userKey = Auth.auth().currentUser?.uid else {return}
+        guard let productId = data?.productId else { return }
+        ref.child(userKey).child(getProductIdKey(id: productId)).setValue(isFavorite)
     }
     
     @IBAction func addToCart(_ sender: Any) {
         itemsInCart.append(data!)
-        print("Added \(data!.productName ?? "Uknown") to Cart")
+        print("Added \(data!.productName ?? "Unknown") to Cart")
         
     }
     
@@ -64,6 +55,25 @@ class ProductDetailViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+        getData()
+    }
+    
+    func getData() {
+        ref = Database.database().reference().child("favourites")
+        guard let userKey = Auth.auth().currentUser?.uid else {return}
+        guard let productId = data?.productId else { return }
+        ref.child(userKey).child(getProductIdKey(id: productId)).observeSingleEvent(of: .value, with: { snapshot in
+            let isFavorite = snapshot.value as? Bool ?? false
+            self.isFavorite = isFavorite
+        })
+    }
+    
+    func updateFavoriteIcon() {
+        if isFavorite {
+            favoriteButton.backgroundColor = .red
+        } else {
+            favoriteButton.backgroundColor = .blue
+        }
     }
     
     func setupView() {
@@ -71,19 +81,16 @@ class ProductDetailViewController: UIViewController {
         productName.text = data?.productName
         productHealth.text = data?.productHealth
         productPrice.text = String(data?.productPrice ?? 0)
-        getFavorites()
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
+        favoriteButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
     }
     
-//    func checkIfItemIsInFavorites() -> Bool{
-//        guard let userKey = Auth.auth().currentUser?.uid else { return true }
-//
-//
-//    }
-//
     func getFavorites(){
         ref = Database.database().reference()
         guard let userKey = Auth.auth().currentUser?.uid else {return}
-        databaseHandle = ref.child("favorites").child(userKey).observe(.value){
+        databaseHandle = ref.child("favourites").child(userKey).observe(.value){
             (snapshot) in
             
             guard let rawData = snapshot.value as? [AnyObject] else { return }
@@ -120,5 +127,19 @@ class ProductDetailViewController: UIViewController {
             self.sourceFavorites = favorites
         }
     }
-
+    
+    func removeAlert(id: Int?) { //pass the id into function
+        let controller = UIAlertController(title: "Oops", message: "Would you like to remove the item?", preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "Yes", style: .default, handler: { _ in
+            
+            //Delete from firebase
+            
+            
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(controller, animated: true)
+    
+        
+    }
+    
 }
