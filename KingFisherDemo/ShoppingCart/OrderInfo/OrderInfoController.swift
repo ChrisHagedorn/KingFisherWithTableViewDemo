@@ -15,6 +15,47 @@ class OrderInfoController: UIViewController {
     @IBOutlet weak var telephoneInput: UITextField!
     
     @IBAction func confirmOrder(_ sender: Any) {
+
+        
+        let smtpSession = MCOSMTPSession()
+        smtpSession.hostname = "smtp.gmail.com"
+        smtpSession.username = "hagedornc@ismanila.org"
+        smtpSession.password = "Glide123969"
+        smtpSession.port = 465
+        smtpSession.authType = MCOAuthType.saslPlain
+        smtpSession.connectionType = MCOConnectionType.TLS
+        smtpSession.connectionLogger = {(connectionID, type, data) in
+            if data != nil {
+                if let string = NSString(data: data!, encoding: String.Encoding.utf8.rawValue){
+                    NSLog("Connectionlogger: \(string)")
+                }
+            }
+        }
+        let builder = MCOMessageBuilder()
+        builder.header.to = [MCOAddress(displayName: "Noah", mailbox: "hagedornc@ismanila.org")]
+        builder.header.from = MCOAddress(displayName: "Makati Green Groceer", mailbox: "poopcity@poopcity.org")
+        builder.header.subject = "POO pOO PARTY"
+        builder.htmlBody="<p>Makati Green Grocer</p>"
+        
+        
+        let rfc822Data = builder.data()
+        let sendOperation = smtpSession.sendOperation(with: rfc822Data)
+        sendOperation?.start { (error) -> Void in
+            if (error != nil) {
+                NSLog("Error sending email: \(error)")
+                
+                
+            } else {
+                NSLog("Successfully sent email!")
+                
+                
+            }
+        }
+
+        
+        
+        
+        
 //        let name = nameInput.text!
 //        let adress = adressInput.text!
 //        let telephone = telephoneInput.text!

@@ -11,6 +11,9 @@
 		B904ED4422E9956300A27C82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B904ED4322E9956200A27C82 /* GoogleService-Info.plist */; };
 		B92BD0EF23D0752C00A0512C /* Pods_KingFisherDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92BD0EE23D0752C00A0512C /* Pods_KingFisherDemo.framework */; };
 		B92BD0FD23D0807500A0512C /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92BD0FC23D0807500A0512C /* ProductDetail.storyboard */; };
+		B92BD11A23D08F1900A0512C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B95E1D1F23C5787B0013686C /* CFNetwork.framework */; };
+		B92BD11B23D08F1F00A0512C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B95E1D2123C578D80013686C /* Security.framework */; };
+		B92BD15723D0911600A0512C /* libMailCore-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B92BD14823D090D800A0512C /* libMailCore-ios.a */; };
 		B932BD4A22E5B6F600A6ADC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B932BD4922E5B6F600A6ADC6 /* AppDelegate.swift */; };
 		B932BD4C22E5B6F600A6ADC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B932BD4B22E5B6F600A6ADC6 /* ViewController.swift */; };
 		B932BD4F22E5B6F600A6ADC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B932BD4D22E5B6F600A6ADC6 /* Main.storyboard */; };
@@ -56,6 +59,72 @@
 		B9FB2892231622D8004C0CA5 /* CheckoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9FB2891231622D8004C0CA5 /* CheckoutController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B92BD14523D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA537169E772200778456;
+			remoteInfo = "static mailcore2 osx";
+		};
+		B92BD14723D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
+			remoteInfo = "static mailcore2 ios";
+		};
+		B92BD14923D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA78C169F259200778456;
+			remoteInfo = tests;
+		};
+		B92BD14B23D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6A81B911706840C00882C15;
+			remoteInfo = "test-ios";
+		};
+		B92BD14D23D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
+			remoteInfo = "mailcore osx";
+		};
+		B92BD14F23D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 27780C3A19CF9CD100C77E44;
+			remoteInfo = "mailcore ios";
+		};
+		B92BD15123D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6B5AE0219F630B3001352A6;
+			remoteInfo = unittest;
+		};
+		B92BD15323D090D800A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C600B6141A242C3F000728F1;
+			remoteInfo = unittestcpp;
+		};
+		B92BD15523D0910F00A0512C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C6BA2B091705F4E6003F0E9E;
+			remoteInfo = "static mailcore2 ios";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		06B3C2855E945BF99A7070FF /* Pods_KingFisherDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingFisherDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F58D2AD44DE46A2ADEF5F2 /* Pods-KingFisherDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingFisherDemo.debug.xcconfig"; path = "Target Support Files/Pods-KingFisherDemo/Pods-KingFisherDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +132,8 @@
 		B904ED4322E9956200A27C82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B92BD0EE23D0752C00A0512C /* Pods_KingFisherDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_KingFisherDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92BD0FC23D0807500A0512C /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
+		B92BD11E23D0905700A0512C /* KingFisherDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingFisherDemo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "../../../Clone/mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
 		B932BD4622E5B6F600A6ADC6 /* KingFisherDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KingFisherDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B932BD4922E5B6F600A6ADC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B932BD4B22E5B6F600A6ADC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +189,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B92BD15723D0911600A0512C /* libMailCore-ios.a in Frameworks */,
+				B92BD11B23D08F1F00A0512C /* Security.framework in Frameworks */,
+				B92BD11A23D08F1900A0512C /* CFNetwork.framework in Frameworks */,
 				B92BD0EF23D0752C00A0512C /* Pods_KingFisherDemo.framework in Frameworks */,
 				3B6C68A0719E998403048810 /* Pods_KingFisherDemo.framework in Frameworks */,
 			);
@@ -146,6 +220,21 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B92BD13B23D090D100A0512C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B92BD14623D090D800A0512C /* libMailCore.a */,
+				B92BD14823D090D800A0512C /* libMailCore-ios.a */,
+				B92BD14A23D090D800A0512C /* tests */,
+				B92BD14C23D090D800A0512C /* test-ios.app */,
+				B92BD14E23D090D800A0512C /* MailCore.framework */,
+				B92BD15023D090D800A0512C /* MailCore.framework */,
+				B92BD15223D090D800A0512C /* unittest.xctest */,
+				B92BD15423D090D800A0512C /* unittestcpp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B932BD3D22E5B6F600A6ADC6 = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +256,8 @@
 		B932BD4822E5B6F600A6ADC6 /* KingFisherDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */,
+				B92BD11E23D0905700A0512C /* KingFisherDemo-Bridging-Header.h */,
 				B96836A2230C0E7B00832D8F /* Categories */,
 				B9683697230C0CF300832D8F /* Favorites */,
 				B9ED293D22E6EE1B006E0CEE /* Products */,
@@ -419,6 +510,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B92BD15623D0910F00A0512C /* PBXTargetDependency */,
 			);
 			name = KingFisherDemo;
 			productName = KingFisherDemo;
@@ -452,12 +544,77 @@
 			mainGroup = B932BD3D22E5B6F600A6ADC6;
 			productRefGroup = B932BD4722E5B6F600A6ADC6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B92BD13B23D090D100A0512C /* Products */;
+					ProjectRef = B92BD13A23D090D100A0512C /* mailcore2.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B932BD4522E5B6F600A6ADC6 /* KingFisherDemo */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B92BD14623D090D800A0512C /* libMailCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMailCore.a;
+			remoteRef = B92BD14523D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD14823D090D800A0512C /* libMailCore-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMailCore-ios.a";
+			remoteRef = B92BD14723D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD14A23D090D800A0512C /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = B92BD14923D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD14C23D090D800A0512C /* test-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "test-ios.app";
+			remoteRef = B92BD14B23D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD14E23D090D800A0512C /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = B92BD14D23D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD15023D090D800A0512C /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = B92BD14F23D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD15223D090D800A0512C /* unittest.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = unittest.xctest;
+			remoteRef = B92BD15123D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B92BD15423D090D800A0512C /* unittestcpp */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = unittestcpp;
+			remoteRef = B92BD15323D090D800A0512C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B932BD4422E5B6F600A6ADC6 /* Resources */ = {
@@ -582,6 +739,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B92BD15623D0910F00A0512C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "static mailcore2 ios";
+			targetProxy = B92BD15523D0910F00A0512C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B932BD4D22E5B6F600A6ADC6 /* Main.storyboard */ = {
@@ -736,6 +901,93 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MailCore-ios\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-lctemplate-ios",
+					"-letpan-ios",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-lresolv",
+					"-stdlib=libc++",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrisHagedorn.KingFisherDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/chrishagedorn/Desktop/xCode/KingFisherDemo/KingFisherDemo/KingFisherDemo-Bridging-Header.h";
@@ -756,6 +1008,93 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"MailCore-ios\"",
+					"-l\"c++\"",
+					"-l\"iconv\"",
+					"-l\"icucore\"",
+					"-l\"resolv\"",
+					"-l\"sqlite3\"",
+					"-l\"xml2\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accelerate\"",
+					"-framework",
+					"\"AppAuth\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreText\"",
+					"-framework",
+					"\"FBLPromises\"",
+					"-framework",
+					"\"FIRAnalyticsConnector\"",
+					"-framework",
+					"\"FirebaseAnalytics\"",
+					"-framework",
+					"\"FirebaseAuth\"",
+					"-framework",
+					"\"FirebaseCore\"",
+					"-framework",
+					"\"FirebaseCoreDiagnostics\"",
+					"-framework",
+					"\"FirebaseDatabase\"",
+					"-framework",
+					"\"FirebaseInstallations\"",
+					"-framework",
+					"\"FirebaseInstanceID\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"GTMAppAuth\"",
+					"-framework",
+					"\"GTMSessionFetcher\"",
+					"-framework",
+					"\"GoogleAppMeasurement\"",
+					"-framework",
+					"\"GoogleDataTransport\"",
+					"-framework",
+					"\"GoogleDataTransportCCTSupport\"",
+					"-framework",
+					"\"GoogleSignIn\"",
+					"-framework",
+					"\"GoogleUtilities\"",
+					"-framework",
+					"\"Kingfisher\"",
+					"-framework",
+					"\"LocalAuthentication\"",
+					"-framework",
+					"\"SafariServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"StoreKit\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"leveldb\"",
+					"-framework",
+					"\"nanopb\"",
+					"-weak_framework",
+					"\"AuthenticationServices\"",
+					"-lctemplate-ios",
+					"-letpan-ios",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-lresolv",
+					"-stdlib=libc++",
+					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrisHagedorn.KingFisherDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
