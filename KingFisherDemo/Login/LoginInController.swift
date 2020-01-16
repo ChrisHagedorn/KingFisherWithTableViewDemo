@@ -11,12 +11,13 @@ import FirebaseAuth
 import GoogleSignIn
 import Firebase
 
-class LoginInController: UIViewController, GIDSignInUIDelegate {
-    
-    
+
+class LoginInController: UIViewController {
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance()?.uiDelegate = self
+        //GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance()?.presentingViewController = self
         //GIDSignIn.sharedInstance().signInSilently()
         
         let gSignIn = GIDSignInButton(frame: CGRect(x: 0, y: 0, width: 230, height: 48))

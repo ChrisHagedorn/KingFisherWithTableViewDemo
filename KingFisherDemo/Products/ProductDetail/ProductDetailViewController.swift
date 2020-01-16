@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 var itemsInCart: [Product] = []
 
-
 class ProductDetailViewController: UIViewController {
     static func create() -> ProductDetailViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
@@ -36,7 +35,8 @@ class ProductDetailViewController: UIViewController {
     
 
     var favoriteButton = UIButton()
-    
+
+
     @IBAction func addToFavorites() {
         isFavorite = !isFavorite
         ref = Database.database().reference().child("favourites")

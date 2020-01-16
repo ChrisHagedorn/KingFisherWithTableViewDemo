@@ -55,11 +55,11 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         return true
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url as URL?,
-                                                 sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-                                                 annotation: options[UIApplication.OpenURLOptionsKey.annotation])
+    func application(_ application: UIApplication,
+                     open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+      return GIDSignIn.sharedInstance().handle(url)
     }
+
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("Running sign in")
