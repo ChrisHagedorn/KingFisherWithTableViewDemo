@@ -19,9 +19,12 @@ class FavoritesController: UITableViewController {
     
     var datasource = [Product]() { didSet {
         tableView.reloadData()
+        emptyLabel.isHidden = !datasource.isEmpty
         }
         
     }
+    @IBOutlet weak var emptyLabel: UILabel!
+    
     
     var ref: DatabaseReference!
     var databaseHandle: DatabaseHandle!
@@ -37,7 +40,7 @@ class FavoritesController: UITableViewController {
         
         super.viewDidLoad()
         
-
+        emptyLabel.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +48,8 @@ class FavoritesController: UITableViewController {
     
         let productSource = DataStore.products
         ref = Database.database().reference()
-        ref.child("favourites").child(userKey!).observe(.value)
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        ref.child("favourites").child(userId).observe(.value)
         { (snapshot) in
             
             guard let rawData = snapshot.value as? [String: AnyObject] else { return }
@@ -62,6 +66,7 @@ class FavoritesController: UITableViewController {
             })
             self.datasource = products
         }
+        //MARK: If table is empty put a title, you have no favorites.
     }
 
 }

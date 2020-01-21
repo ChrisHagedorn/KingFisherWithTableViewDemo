@@ -15,25 +15,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-oy-HU9" customClass="ProductDetailHeader" customModule="KingFisherDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="601"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-rK-MV7" customClass="ProductDetailFooterView" customModule="KingFisherDemo" customModuleProvider="target">
-                                <rect key="frame" x="-20" y="633" width="454" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKS-zq-N4v">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h3F-0J-S2O" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SXR-oy-HU9" customClass="ProductDetailHeader" customModule="KingFisherDemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="250" constant="400" id="cUN-Ad-AwM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gS7-rK-MV7" customClass="ProductDetailFooterView" customModule="KingFisherDemo" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="400" width="414" height="100"/>
+                                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" priority="250" constant="100" id="uYr-nd-fTm"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="gS7-rK-MV7" secondAttribute="trailing" id="42B-Eb-jb5"/>
+                                            <constraint firstItem="SXR-oy-HU9" firstAttribute="leading" secondItem="h3F-0J-S2O" secondAttribute="leading" id="9PW-MD-VUk"/>
+                                            <constraint firstAttribute="trailing" secondItem="SXR-oy-HU9" secondAttribute="trailing" id="Nv8-jP-edr"/>
+                                            <constraint firstItem="gS7-rK-MV7" firstAttribute="leading" secondItem="h3F-0J-S2O" secondAttribute="leading" id="RPf-tJ-hBM"/>
+                                            <constraint firstAttribute="bottom" secondItem="gS7-rK-MV7" secondAttribute="bottom" id="cIZ-wG-Img"/>
+                                            <constraint firstItem="gS7-rK-MV7" firstAttribute="top" secondItem="SXR-oy-HU9" secondAttribute="bottom" id="nRZ-su-ZbP"/>
+                                            <constraint firstItem="SXR-oy-HU9" firstAttribute="top" secondItem="h3F-0J-S2O" secondAttribute="top" id="pAo-uG-ylh"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h3F-0J-S2O" firstAttribute="leading" secondItem="sKS-zq-N4v" secondAttribute="leading" id="21L-fr-Z7a"/>
+                                    <constraint firstItem="h3F-0J-S2O" firstAttribute="trailing" secondItem="sKS-zq-N4v" secondAttribute="trailing" id="ERk-ir-8No"/>
+                                    <constraint firstItem="h3F-0J-S2O" firstAttribute="top" secondItem="sKS-zq-N4v" secondAttribute="top" id="NDu-VB-A6S"/>
+                                    <constraint firstItem="h3F-0J-S2O" firstAttribute="height" secondItem="sKS-zq-N4v" secondAttribute="height" priority="250" id="arK-pd-RxP"/>
+                                    <constraint firstItem="h3F-0J-S2O" firstAttribute="width" secondItem="sKS-zq-N4v" secondAttribute="width" id="pzd-Kb-jLU"/>
+                                    <constraint firstAttribute="bottom" secondItem="h3F-0J-S2O" secondAttribute="bottom" id="vtX-Iy-55U"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ZFX-cb-atg"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="7bw-7z-vRv"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="gS7-rK-MV7" firstAttribute="top" secondItem="i4n-nU-66t" secondAttribute="top" constant="589" id="7at-sQ-kPd"/>
-                            <constraint firstItem="gS7-rK-MV7" firstAttribute="leading" secondItem="BVA-Ht-blF" secondAttribute="leadingMargin" constant="-40" id="I50-Le-lff"/>
-                            <constraint firstItem="SXR-oy-HU9" firstAttribute="centerX" secondItem="BVA-Ht-blF" secondAttribute="centerX" id="N34-NV-rvG"/>
-                            <constraint firstItem="SXR-oy-HU9" firstAttribute="centerX" secondItem="gS7-rK-MV7" secondAttribute="centerX" id="gRA-8n-Npx"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="gS7-rK-MV7" secondAttribute="bottom" constant="-20" id="mkx-gw-xiV"/>
-                            <constraint firstItem="SXR-oy-HU9" firstAttribute="leading" secondItem="i4n-nU-66t" secondAttribute="leading" id="oVW-4o-Zev"/>
-                            <constraint firstItem="SXR-oy-HU9" firstAttribute="top" secondItem="i4n-nU-66t" secondAttribute="top" id="pxW-HS-igV"/>
-                            <constraint firstItem="i4n-nU-66t" firstAttribute="bottom" secondItem="SXR-oy-HU9" secondAttribute="bottom" constant="217" id="tMr-Eg-ag0"/>
+                            <constraint firstItem="sKS-zq-N4v" firstAttribute="top" secondItem="BVA-Ht-blF" secondAttribute="top" id="ICv-sW-vEv"/>
+                            <constraint firstAttribute="trailing" secondItem="sKS-zq-N4v" secondAttribute="trailing" id="Tc2-6K-05E"/>
+                            <constraint firstItem="sKS-zq-N4v" firstAttribute="leading" secondItem="BVA-Ht-blF" secondAttribute="leading" id="Tjn-66-5eh"/>
+                            <constraint firstAttribute="bottom" secondItem="sKS-zq-N4v" secondAttribute="bottom" id="sPN-hf-Wxk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="i4n-nU-66t"/>
                     </view>

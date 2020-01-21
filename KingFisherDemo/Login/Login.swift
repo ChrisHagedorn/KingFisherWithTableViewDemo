@@ -13,8 +13,8 @@ import Firebase
 
 @UIApplicationMain
 class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-   
-
+    
+    
     var window: UIWindow?
     
     
@@ -22,7 +22,7 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Database.database().reference().child("products").observeSingleEvent(of: .value) { (snapshot) in
             guard let rawData = snapshot.value as? [[String: Any]] else { return }
             Database.database().reference().child("products").removeValue()
-
+            
             for item in rawData {
                 let productId = "product_\(item["id"] as! Int)"
                 Database.database().reference().child("products")
@@ -52,14 +52,22 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // Override point for customization after application launch.
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
+        
+        
+        if Auth.auth().currentUser != nil {
+            // show home screen
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+            window?.rootViewController = vc
+        }
+        
         return true
     }
     
     func application(_ application: UIApplication,
                      open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-      return GIDSignIn.sharedInstance().handle(url)
+        return GIDSignIn.sharedInstance().handle(url)
     }
-
+    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print("Running sign in")
@@ -89,7 +97,7 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                 return
             }
             print("User is signed in with Firebase")
- self.window?.rootViewController!.performSegue(withIdentifier: "moveToTabBar", sender: nil)
+            self.window?.rootViewController!.performSegue(withIdentifier: "moveToTabBar", sender: nil)
         }
         
         

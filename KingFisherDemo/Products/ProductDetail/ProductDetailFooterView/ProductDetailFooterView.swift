@@ -14,17 +14,16 @@ class ProductDetailFooterView: UIView {
         }}
     
     @IBOutlet weak var collectionView: UICollectionView!
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "ProductDetailFooter", bundle: nil), forCellWithReuseIdentifier: "ProductDetailFooterCell")
-        
+        collectionView.register(UINib(nibName: "ProductDetailFooterCell", bundle: nil), forCellWithReuseIdentifier: "ProductDetailFooterCell")
     }
-
+    
 }
 
 extension ProductDetailFooterView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -42,22 +41,30 @@ extension ProductDetailFooterView: UICollectionViewDataSource, UICollectionViewD
         //let screenWidth = UIScreen.main.bounds.width
         //let width = (screenWidth - 16) * 2 / 3
         //return CGSize(width: width, height: collectionView.frame.height)
-        return CGSize(width: collectionView.frame.width * 0.67, height: collectionView.frame.height)
+        return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height / 2)
+        
+        //return CGSize(width: collectionView.frame.width * 0.67, height: collectionView.frame.height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let controller = ProductDetailViewController.create()
         controller.data = datasource[indexPath.row]
-        (superview?.next as? UIViewController)?.navigationController?.pushViewController(controller, animated: true)
-        //TODO: Double check with Ky
+        
+        if var vcs = UIApplication.topVC()?.navigationController?.viewControllers {
+            vcs.removeLast()
+            vcs.append(controller)
+            UIApplication.topVC()?.navigationController?.setViewControllers(vcs, animated: true)
+        } else {
+            UIApplication.push(controller)
         }
+    }
     
 }
 

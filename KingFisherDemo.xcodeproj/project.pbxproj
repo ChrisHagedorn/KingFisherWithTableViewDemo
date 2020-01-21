@@ -23,7 +23,7 @@
 		B94DB8FB232614B1009A19F2 /* FavoritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DB8F9232614B1009A19F2 /* FavoritesController.swift */; };
 		B94DB8FE232616F4009A19F2 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94DB8FD232616F4009A19F2 /* FavoritesCell.swift */; };
 		B94DB900232795A2009A19F2 /* FavoritesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B94DB8FF232795A2009A19F2 /* FavoritesCell.xib */; };
-		B9683696230C0CA500832D8F /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9683695230C0CA500832D8F /* Favorites.storyboard */; };
+		B9683696230C0CA500832D8F /* FavoritesController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9683695230C0CA500832D8F /* FavoritesController.storyboard */; };
 		B968369D230C0E1E00832D8F /* CategoriesHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B968369C230C0E1E00832D8F /* CategoriesHeaderView.xib */; };
 		B968369F230C0E4D00832D8F /* CategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B968369E230C0E4D00832D8F /* CategoriesController.swift */; };
 		B96836A4230C0EB400832D8F /* CategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96836A3230C0EB400832D8F /* CategoriesCell.swift */; };
@@ -155,7 +155,7 @@
 		B95E1D1F23C5787B0013686C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		B95E1D2123C578D80013686C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		B95E1D2323C57AEC0013686C /* KingFisherDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KingFisherDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		B9683695230C0CA500832D8F /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
+		B9683695230C0CA500832D8F /* FavoritesController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FavoritesController.storyboard; sourceTree = "<group>"; };
 		B968369C230C0E1E00832D8F /* CategoriesHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesHeaderView.xib; sourceTree = "<group>"; };
 		B968369E230C0E4D00832D8F /* CategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesController.swift; sourceTree = "<group>"; };
 		B96836A3230C0EB400832D8F /* CategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCell.swift; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 		B94DB9012327B756009A19F2 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B9683695230C0CA500832D8F /* Favorites.storyboard */,
+				B9683695230C0CA500832D8F /* FavoritesController.storyboard */,
 				B94DB8F9232614B1009A19F2 /* FavoritesController.swift */,
 			);
 			path = Controller;
@@ -673,7 +673,7 @@
 				B9FB2890231622C7004C0CA5 /* CheckoutController.storyboard in Resources */,
 				B9D1AF1823091B3900CD1A23 /* ShoppingCartViewController.storyboard in Resources */,
 				B968369D230C0E1E00832D8F /* CategoriesHeaderView.xib in Resources */,
-				B9683696230C0CA500832D8F /* Favorites.storyboard in Resources */,
+				B9683696230C0CA500832D8F /* FavoritesController.storyboard in Resources */,
 				B973C878230E2E7600CA9319 /* CategoriesDetail.storyboard in Resources */,
 				B9C1090223014B8900722308 /* FeaturedFoodCell.xib in Resources */,
 				B98E1B4A23062E1F001B8944 /* ShoppingCartHeader.xib in Resources */,

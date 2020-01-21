@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print(unrwaped)
 //        }
         //window?.rootViewController = UIViewController()
-        print("Lol")
+        
         
         
         return true

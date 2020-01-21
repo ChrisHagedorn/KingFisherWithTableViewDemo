@@ -8,21 +8,10 @@
 
 import UIKit
 
-protocol ShoppingCartHeaderDelegate {
-    func didTapBackButton()
-}
-
 class ShoppingCartHeader: UIView {
     
     @IBOutlet weak var cartLabel: UILabel!
-    @IBOutlet weak var backButton: UIButton!
-    @IBAction func backButtonPressed(_ sender: UIButton) {
-        delegate?.didTapBackButton()
-        print("Button pressed")
-    }
-    
-    var delegate: ShoppingCartHeaderDelegate?
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()

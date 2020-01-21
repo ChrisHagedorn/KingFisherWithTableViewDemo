@@ -12,7 +12,6 @@ class ProductDetailFooterCell: UICollectionViewCell {
 
         var data: Product?
         func setData(_ data: Product) {
-            self.data = data
             foodImageView.downloadImage(from: data.productImage)
         }
         

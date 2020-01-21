@@ -17,10 +17,10 @@
             </objects>
             <point key="canvasLocation" x="3583" y="288"/>
         </scene>
-        <!--Favorites-->
+        <!--FavoritesController-->
         <scene sceneID="5pL-XI-nhQ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Favorites" id="X28-lL-NCx" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="FavoritesController" id="X28-lL-NCx" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="cSf-bl-bRB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tPX-87-oky" userLabel="First Responder" sceneMemberID="firstResponder"/>
