@@ -14,8 +14,12 @@ var itemsInCart: [Product] = []
 
 class ProductDetailViewController: UIViewController {
     static func create() -> ProductDetailViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
+        return UIStoryboard(name: "ProductDetail", bundle: nil).instantiateViewController(withIdentifier: "ProductDetailViewController") as! ProductDetailViewController
     }
+    
+    
+    @IBOutlet weak var headerView: ProductDetailHeader!
+    @IBOutlet weak var footerView: ProductDetailFooterView!
     
     var data: Product?
     var ref: DatabaseReference!
@@ -26,14 +30,7 @@ class ProductDetailViewController: UIViewController {
         updateFavoriteIcon()
         }}
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var productPrice: UILabel!
-    @IBOutlet weak var productCatagory: UILabel!
-    @IBOutlet weak var productHealth: UILabel!
-    @IBOutlet weak var productDescription: UILabel!
     
-
     var favoriteButton = UIButton()
 
 
@@ -45,15 +42,10 @@ class ProductDetailViewController: UIViewController {
         ref.child(userKey).child(getProductIdKey(id: productId)).setValue(isFavorite)
     }
     
-    @IBAction func addToCart(_ sender: Any) {
-        itemsInCart.append(data!)
-        print("Added \(data!.productName ?? "Unknown") to Cart")
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        headerView.data = self.data
         setupView()
         getData()
     }
@@ -77,56 +69,57 @@ class ProductDetailViewController: UIViewController {
     }
     
     func setupView() {
-        imageView.downloadImage(from: data?.productImage)
-        productName.text = data?.productName
-        productHealth.text = data?.productHealth
-        productPrice.text = String(data?.productPrice ?? 0)
-        
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
         favoriteButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
+        headerView.awakeFromNib()
+        footerView.awakeFromNib()
+        footerView.frame.size.width = self.view.bounds.width //Fit XIB file into headerview
+        footerView.frame.size.height = self.view.bounds.height
+        headerView.frame.size.width = self.view.bounds.width //Fit XIB file into headerview
+        headerView.frame.size.height = self.view.bounds.height
+
     }
     
-    func getFavorites(){
-        ref = Database.database().reference()
-        guard let userKey = Auth.auth().currentUser?.uid else {return}
-        databaseHandle = ref.child("favourites").child(userKey).observe(.value){
-            (snapshot) in
-            
-            guard let rawData = snapshot.value as? [AnyObject] else { return }
-            
-            var favorites = [Product]()
-            for item in rawData {
-                guard let itemArray = item as? [String: AnyObject]
-                    else {continue}
-                
-                let pro = Product()
-                if itemArray.count > 0 {
-                    pro.productId = itemArray["id"] as? Int
-                    
-                }
-                if itemArray.count > 1 {
-                    pro.productName = itemArray["name"] as? String
-                }
-                
-                if itemArray.count > 2 {
-                    pro.productHealth = itemArray["health"] as? String
-                }
-                
-                if itemArray.count > 3 {
-                    pro.productPrice = itemArray["price"] as? Int
-                }
-                
-                if itemArray.count > 4 {
-                    pro.productImage = itemArray["url"] as? String
-                }
-                
-                favorites.append(pro)
-            }
-            self.dataLength = favorites.count
-            self.sourceFavorites = favorites
-        }
-    }
+//    func getFavorites(){
+//        ref = Database.database().reference()
+//        guard let userKey = Auth.auth().currentUser?.uid else {return}
+//        databaseHandle = ref.child("favourites").child(userKey).observe(.value){
+//            (snapshot) in
+//
+//            guard let rawData = snapshot.value as? [AnyObject] else { return }
+//
+//            var favorites = [Product]()
+//            for item in rawData {
+//                guard let itemArray = item as? [String: AnyObject]
+//                    else {continue}
+//
+//                let pro = Product()
+//                if itemArray.count > 0 {
+//                    pro.productId = itemArray["id"] as? Int
+//
+//                }
+//                if itemArray.count > 1 {
+//                    pro.productName = itemArray["name"] as? String
+//                }
+//
+//                if itemArray.count > 2 {
+//                    pro.productHealth = itemArray["health"] as? String
+//                }
+//
+//                if itemArray.count > 3 {
+//                    pro.productPrice = itemArray["price"] as? Int
+//                }
+//
+//                if itemArray.count > 4 {
+//                    pro.productImage = itemArray["url"] as? String
+//                }
+//
+//                favorites.append(pro)
+//            }
+//            self.dataLength = favorites.count
+//            self.sourceFavorites = favorites
+//        }
+//    }
     
     func removeAlert(id: Int?) { //pass the id into function
         let controller = UIAlertController(title: "Oops", message: "Would you like to remove the item?", preferredStyle: .alert)
@@ -143,3 +136,4 @@ class ProductDetailViewController: UIViewController {
     }
     
 }
+

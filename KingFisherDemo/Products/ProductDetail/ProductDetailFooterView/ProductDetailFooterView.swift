@@ -1,52 +1,39 @@
 //
-//  ProductHeaderView.swift
+//  ProductDetailFooterView.swift
 //  KingFisherDemo
 //
-//  Created by Chris Hagedorn on 8/12/19.
-//  Copyright © 2019 Chris Hagedorn. All rights reserved.
+//  Created by Chris Hagedorn on 1/20/20.
+//  Copyright © 2020 Chris Hagedorn. All rights reserved.
 //
 
 import UIKit
 
-protocol ProductHeaderDelegate {
-    func didTapShoppingCart()
-}
-
-class ProductHeaderView: UIView {
-    
-    
-    @IBAction func shoppingCart(_ sender: UIButton) { //Shopping Cart Segue
-        delegate?.didTapShoppingCart()
-    }
-    
-    var delegate: ProductHeaderDelegate?
-    
-    
+class ProductDetailFooterView: UIView {
     var datasource = [Product]() { didSet {
         collectionView.reloadData()
         }}
+    
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var shoppingCart: UIButton!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "FeaturedFoodCell", bundle: nil), forCellWithReuseIdentifier: "FeaturedFoodCell")
-         shoppingCart.layer.cornerRadius = 4
+        collectionView.register(UINib(nibName: "ProductDetailFooter", bundle: nil), forCellWithReuseIdentifier: "ProductDetailFooterCell")
+        
     }
+
 }
 
-
-extension ProductHeaderView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension ProductDetailFooterView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FeaturedFoodCell", for: indexPath) as! FeaturedFoodCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductDetailFooterCell", for: indexPath) as! ProductDetailFooterCell
         cell.setData(datasource[indexPath.row])
         return cell
     }
@@ -73,3 +60,4 @@ extension ProductHeaderView: UICollectionViewDataSource, UICollectionViewDelegat
         }
     
 }
+

@@ -145,6 +145,15 @@ extension ProductsController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell" ) as! ProductCell
         let product = datasource[indexPath.row]
         cell.setProduct(product: product)
+        
+        //customization
+        cell.backgroundColor = UIColor.white
+        cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+
+        
         return cell
     }
     
@@ -157,6 +166,12 @@ extension ProductsController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 312
     }
+    
+    // Set the spacing between sections
+//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 5
+//    }
+
 }
 
 

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +11,7 @@
             <connections>
                 <outlet property="collectionView" destination="jTP-4f-7ey" id="UZO-O7-bqI"/>
                 <outlet property="searchBar" destination="yAE-HH-HwR" id="d6h-Bp-ty8"/>
+                <outlet property="shoppingCart" destination="f1j-eY-aWI" id="Dam-4c-ols"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,18 +26,20 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1j-eY-aWI">
-                                    <rect key="frame" x="324" y="21" width="29" height="22"/>
+                                    <rect key="frame" x="287" y="21" width="66" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                     <size key="titleShadowOffset" width="0.0" height="-1"/>
-                                    <state key="normal" image="cart">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Cart">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="medium"/>
                                     </state>
                                     <connections>
                                         <action selector="shoppingCart:" destination="-1" eventType="touchUpInside" id="pWz-bq-LFh"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.94117909669876099" green="0.94117647409439087" blue="0.94116842746734619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="Wlz-DW-BIo"/>
                             </constraints>
@@ -45,7 +47,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXh-kV-jRQ" userLabel="Search">
                             <rect key="frame" x="0.0" y="64" width="375" height="64"/>
                             <subviews>
-                                <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" text="" scopeBarBackgroundImage="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-HH-HwR">
+                                <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" text="" placeholder="Search Green Grocer" translucent="NO" scopeBarBackgroundImage="google.png" translatesAutoresizingMaskIntoConstraints="NO" id="yAE-HH-HwR">
                                     <rect key="frame" x="0.0" y="4" width="367" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <offsetWrapper key="searchTextPositionAdjustment" horizontal="16" vertical="0.0"/>
@@ -65,14 +67,14 @@
                             <rect key="frame" x="0.0" y="128" width="375" height="503"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FEATURED FOOD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-wp-Ult">
-                                    <rect key="frame" x="16" y="16" width="135" height="298.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="16" y="16" width="130" height="298.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-4f-7ey">
                                     <rect key="frame" x="0.0" y="322.5" width="375" height="128"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.94117909669876099" green="0.94117647409439087" blue="0.94116842746734619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="uo9-yh-1kt"/>
                                     </constraints>
@@ -84,8 +86,8 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POPULAR SALES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNj-kb-v7O">
-                                    <rect key="frame" x="16" y="466.5" width="132.5" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="16" y="466.5" width="126.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -109,7 +111,7 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94117909669876099" green="0.94117647409439087" blue="0.94116842746734619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5Cb-Mh-LbI" secondAttribute="bottom" priority="750" constant="16" id="NAq-2B-Y8R"/>
                 <constraint firstItem="5Cb-Mh-LbI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="YNM-jQ-2A1"/>
@@ -121,7 +123,6 @@
         </view>
     </objects>
     <resources>
-        <image name="cart" width="6.5" height="6.5"/>
         <image name="google.png" width="18" height="18"/>
     </resources>
 </document>

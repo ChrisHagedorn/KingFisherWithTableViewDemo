@@ -16,11 +16,10 @@ class OrderInfoController: UIViewController {
     
     @IBAction func confirmOrder(_ sender: Any) {
 
-        
         let smtpSession = MCOSMTPSession()
         smtpSession.hostname = "smtp.gmail.com"
         smtpSession.username = "hagedornc@ismanila.org"
-        smtpSession.password = "Glide123969"
+        smtpSession.password = "" //MARK: TO DO WITH GREEN GROCER ACCOUNT
         smtpSession.port = 465
         smtpSession.authType = MCOAuthType.saslPlain
         smtpSession.connectionType = MCOConnectionType.TLS
@@ -47,6 +46,8 @@ class OrderInfoController: UIViewController {
                 
             } else {
                 NSLog("Successfully sent email!")
+                print("Order Succesfully Sent... Generate a random order number?")
+                //MARK: SEGUE INTO ORDER PLACED STORYBORED WITH RANDOM GENERATED REFFERENNCE ID
                 
                 
             }
