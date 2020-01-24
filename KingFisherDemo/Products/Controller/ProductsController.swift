@@ -179,6 +179,7 @@ extension ProductsController {
 extension ProductsController: ProductHeaderDelegate {
     func didTapShoppingCart() {
         let controller = ShoppingCartViewController.create()
+        controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
     }
 }

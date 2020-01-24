@@ -91,7 +91,8 @@ class OrderInfoController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         footerView.buttonHide()
-        self.tabBarController!.tabBar.isHidden = true
+        
+        footerView.frame.size.height = 100
     }
     
     

@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="TopLeft" axis="vertical" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gSM-nR-SEb">
-                        <rect key="frame" x="92" y="15" width="252" height="66"/>
+                        <rect key="frame" x="92" y="17" width="252" height="66.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yv-l9-BzH">
                                 <rect key="frame" x="0.0" y="0.0" width="236" height="18"/>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="ProductPrice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14L-rn-KHp">
-                                <rect key="frame" x="0.0" y="48.5" width="236" height="17.5"/>
+                                <rect key="frame" x="0.0" y="48.5" width="236" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -54,19 +54,39 @@
                             <constraint firstAttribute="width" secondItem="LPl-Gh-rOK" secondAttribute="height" multiplier="1:1" id="eWd-LK-peS"/>
                         </constraints>
                     </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-uG-wvB">
+                        <rect key="frame" x="265" y="20" width="94" height="60.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezw-Cb-hSZ">
+                                <rect key="frame" x="42" y="0.0" width="10.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="vUv-ir-2cE">
+                                <rect key="frame" x="0.0" y="28.5" width="94" height="32"/>
+                                <connections>
+                                    <action selector="amountChange:" destination="rkh-WJ-a1T" eventType="valueChanged" id="sQ1-Gz-u9A"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gSM-nR-SEb" firstAttribute="top" secondItem="oD0-ok-tSt" secondAttribute="topMargin" constant="4" id="0iq-kJ-yWj"/>
+                    <constraint firstItem="E1v-uG-wvB" firstAttribute="centerY" secondItem="oD0-ok-tSt" secondAttribute="centerY" id="4yI-p5-Yte"/>
                     <constraint firstItem="LPl-Gh-rOK" firstAttribute="top" secondItem="oD0-ok-tSt" secondAttribute="top" constant="16" id="80N-kR-Wkv"/>
                     <constraint firstAttribute="bottom" secondItem="LPl-Gh-rOK" secondAttribute="bottom" constant="16" id="DOS-D4-ysH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gSM-nR-SEb" secondAttribute="trailing" constant="16" id="FbJ-JD-uFc"/>
+                    <constraint firstAttribute="trailing" secondItem="E1v-uG-wvB" secondAttribute="trailing" constant="16" id="aLC-zf-q89"/>
                     <constraint firstItem="gSM-nR-SEb" firstAttribute="leading" secondItem="LPl-Gh-rOK" secondAttribute="trailing" constant="8" id="kFL-jK-ygU"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="gSM-nR-SEb" secondAttribute="bottom" constant="8" id="qgy-tC-2ye"/>
+                    <constraint firstItem="gSM-nR-SEb" firstAttribute="centerY" secondItem="oD0-ok-tSt" secondAttribute="centerY" id="vbI-T4-HYb"/>
                     <constraint firstItem="LPl-Gh-rOK" firstAttribute="leading" secondItem="oD0-ok-tSt" secondAttribute="leading" constant="16" id="zwf-cd-uAb"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <connections>
+                <outlet property="amountLabel" destination="ezw-Cb-hSZ" id="Q0K-tN-JDl"/>
+                <outlet property="amountStepper" destination="vUv-ir-2cE" id="g86-Ad-4mY"/>
                 <outlet property="productHealth" destination="dfI-cx-4gb" id="ovm-0u-vI2"/>
                 <outlet property="productImageView" destination="LPl-Gh-rOK" id="gz6-tX-XDs"/>
                 <outlet property="productName" destination="0yv-l9-BzH" id="s0C-bv-WCo"/>

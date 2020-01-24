@@ -29,20 +29,10 @@ class ShoppingCartFooter: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
-        setPrice()
-        
     }
     
-    //Sets the productPrice label.
-    func setPrice() {
-        var sum: Int = 0
-        if !itemsInCart.isEmpty{
-            for index in 0...itemsInCart.count - 1 {
-                sum += itemsInCart[index].productPrice ?? 0
-                
-            }
-        }
-        productPrice.text = String(sum)
+    func setTotal(total: Int) {
+        productPrice.text = "$" + String(total)
     }
     
     

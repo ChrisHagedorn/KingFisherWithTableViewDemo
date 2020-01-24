@@ -78,8 +78,22 @@ class ProductDetailViewController: UIViewController {
     }
     
     @objc func addToCart() {
-        itemsInCart.append(data!)
-        print("Added \(data!.productName ?? "Unknown") to Cart")
+        guard let myid = Auth.auth().currentUser?.uid else { return }
+        guard let productId = data?.productId else { return }
+        // cart: product 1 (2), 2 (1), 3 (4)
+        Database.database().reference()
+            .child("cart")
+            .child(myid)
+            .child("product_" + String(productId))
+            .observeSingleEvent(of: .value) { (snapshot) in
+                var count = snapshot.value as? Int ?? 0
+                count += 1
+                Database.database().reference()
+                    .child("cart")
+                    .child(myid)
+                    .child("product_" + String(productId)).setValue(count)
+                
+        }
     }
     
     func getSimilarProduct() {
