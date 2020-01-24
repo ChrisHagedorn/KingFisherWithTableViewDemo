@@ -8,18 +8,20 @@
 
 import UIKit
 
-class OrderInfoController: UIViewController {
+class OrderInfoController: UITableViewController {
     @IBOutlet weak var footerView: ShoppingCartFooter!
     @IBOutlet weak var nameInput: UITextField!
     @IBOutlet weak var adressInput: UITextField!
     @IBOutlet weak var telephoneInput: UITextField!
     
+    var itemsInCart: [Product] = []
+    
     @IBAction func confirmOrder(_ sender: Any) {
 
         let smtpSession = MCOSMTPSession()
         smtpSession.hostname = "smtp.gmail.com"
-        smtpSession.username = "hagedornc@ismanila.org"
-        smtpSession.password = "" //MARK: TO DO WITH GREEN GROCER ACCOUNT
+        smtpSession.username = "greengroceryphilippines@gmail.com"
+        smtpSession.password = "totme123!"
         smtpSession.port = 465
         smtpSession.authType = MCOAuthType.saslPlain
         smtpSession.connectionType = MCOConnectionType.TLS
@@ -30,11 +32,13 @@ class OrderInfoController: UIViewController {
                 }
             }
         }
+        
         let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: "Noah", mailbox: "hagedornc@ismanila.org")]
-        builder.header.from = MCOAddress(displayName: "Makati Green Groceer", mailbox: "poopcity@poopcity.org")
-        builder.header.subject = "POO pOO PARTY"
-        builder.htmlBody="<p>Makati Green Grocer</p>"
+        builder.header.to = [MCOAddress(displayName: "\(nameInput.text!)", mailbox: "hagedornc@ismanila.org")]
+        builder.header.from = MCOAddress(displayName: "Makati Green Groceer", mailbox: "GreenGrocery@green.com")
+        builder.header.subject = "Order Confrimation"
+        builder.htmlBody = "/<p>\(nameInput.text!), \(itemsInCart)</p>" //TODO: Maybe make this customizable?
+        
         
         
         let rfc822Data = builder.data()
@@ -87,8 +91,8 @@ class OrderInfoController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         footerView.buttonHide()
-        //TODO: Hide Tab bar
         self.tabBarController!.tabBar.isHidden = true
     }
+    
     
 }

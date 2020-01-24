@@ -15,24 +15,41 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: ShoppingCartHeader!
-    //TODO: Send headerview.delegate back to backToHome segue
+    @IBOutlet weak var emptyLabel: UILabel!
+    @IBOutlet weak var footerView: ShoppingCartFooter!
     
-    var product = itemsInCart
+    var product = itemsInCart {didSet {
+        emptyLabel.isHidden = !product.isEmpty
+        tableView.isHidden = product.isEmpty
+        footerView.isHidden = product.isEmpty
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        
-        let nib = UINib(nibName: "ShoppingCartTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "ShoppingCartTableViewCell")
+        if product.isEmpty {
+            emptyLabel.isHidden = false
+            tableView.isHidden = true
+            footerView.isHidden = true
+        }else{
+            tableView.delegate = self
+            tableView.dataSource = self
+            let nib = UINib(nibName: "ShoppingCartTableViewCell", bundle: nil)
+            tableView.register(nib, forCellReuseIdentifier: "ShoppingCartTableViewCell")
+        }
+
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = false
         title = "Cart"
+
+
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

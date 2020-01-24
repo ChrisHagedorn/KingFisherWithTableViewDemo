@@ -21,6 +21,8 @@ class ShoppingCartTableViewCell: UITableViewCell {
     func setProduct(product: Product) {
         //Set image view with kingfisher
         productImageView.downloadImage(from: product.productImage)
+        productImageView.makeRounded()
+        productImageView.makeShadow()
         productName.text = product.productName
         productPrice.text = (String(product.productPrice ?? 0))
         productHealth.text = product.productHealth

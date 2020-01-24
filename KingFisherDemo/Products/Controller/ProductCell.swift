@@ -24,4 +24,5 @@ class ProductCell: UITableViewCell {
         productPrice.text = ("$\(String(product.productPrice ?? 0))")
         productHealth.text = product.productHealth
     }
+    
 }

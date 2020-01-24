@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShoppingCartFooter" customModule="KingFisherDemo" customModuleProvider="target">
             <connections>
-                <outlet property="moneyLabel" destination="4bm-kB-RKM" id="g6T-PM-G88"/>
                 <outlet property="nextButton" destination="UBE-dz-l4K" id="TLQ-93-eh2"/>
                 <outlet property="productPrice" destination="WeI-Yu-uaZ" id="t8E-ka-pIU"/>
                 <outlet property="shippingLabel" destination="tXh-UH-iwv" id="B6B-kB-VbX"/>
@@ -21,49 +20,55 @@
             <rect key="frame" x="0.0" y="0.0" width="357" height="113"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4E6-hf-xCt">
-                    <rect key="frame" x="22" y="20" width="38" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="undefined" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeI-Yu-uaZ">
-                    <rect key="frame" x="22" y="49" width="94" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Free Domestic Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-UH-iwv">
-                    <rect key="frame" x="22" y="72" width="183" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBE-dz-l4K" customClass="CustomButton" customModule="KingFisherDemo" customModuleProvider="target">
-                    <rect key="frame" x="195" y="31" width="142" height="33"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6z5-Tl-IDG">
+                    <rect key="frame" x="16" y="16" width="325" height="81"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4E6-hf-xCt">
+                            <rect key="frame" x="0.0" y="0.0" width="325" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeI-Yu-uaZ">
+                            <rect key="frame" x="0.0" y="30.5" width="325" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Domestic Shipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXh-UH-iwv">
+                            <rect key="frame" x="0.0" y="60.5" width="325" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBE-dz-l4K" customClass="CustomButton" customModule="KingFisherDemo" customModuleProvider="target">
+                    <rect key="frame" x="236" y="32.5" width="105" height="48"/>
                     <accessibility key="accessibilityConfiguration">
                         <accessibilityTraits key="traits" button="YES" playsSound="YES"/>
                     </accessibility>
-                    <state key="normal" title="Button">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="yUC-3f-fGA"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="24" minY="0.0" maxX="24" maxY="0.0"/>
+                    <state key="normal" title="Proceed">
                         <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
                         <action selector="buttonClickled:" destination="-1" eventType="touchUpInside" id="A3R-Mh-jbh"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bm-kB-RKM">
-                    <rect key="frame" x="3" y="49" width="11" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jwb-zO-euJ" firstAttribute="bottom" secondItem="6z5-Tl-IDG" secondAttribute="bottom" constant="16" id="6bB-7v-NeQ"/>
+                <constraint firstItem="6z5-Tl-IDG" firstAttribute="top" secondItem="jwb-zO-euJ" secondAttribute="top" constant="16" id="8Qj-fQ-Jy8"/>
+                <constraint firstItem="6z5-Tl-IDG" firstAttribute="leading" secondItem="jwb-zO-euJ" secondAttribute="leading" constant="16" id="SWV-yQ-Rga"/>
+                <constraint firstItem="jwb-zO-euJ" firstAttribute="trailing" secondItem="6z5-Tl-IDG" secondAttribute="trailing" constant="16" id="ibc-nY-fGS"/>
+                <constraint firstItem="jwb-zO-euJ" firstAttribute="trailing" secondItem="UBE-dz-l4K" secondAttribute="trailing" constant="16" id="qyU-fW-XOg"/>
+                <constraint firstItem="UBE-dz-l4K" firstAttribute="centerY" secondItem="qLW-40-Q2W" secondAttribute="centerY" id="ws5-OG-hNc"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="jwb-zO-euJ"/>
             <point key="canvasLocation" x="340" y="-134"/>

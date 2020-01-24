@@ -23,6 +23,7 @@ class ProductDetailHeader: UIView {
         productHealth.text = data.productHealth
         productPrice.text = String(data.productPrice ?? 0)
         imageView.downloadImage(from: data.productImage)
+
         descriptionLabel.text =
                 """
                 Learning to code is incredibly rewarding but can also be difficult and frustrating. The strongest assets you can have as a student are a desire to build, a problem-solving mind, and persistence in the face of setbacks.

@@ -34,6 +34,8 @@ extension ProductDetailFooterView: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductDetailFooterCell", for: indexPath) as! ProductDetailFooterCell
         cell.setData(datasource[indexPath.row])
+
+        //TODO: Make Cell have Shadow and Animate on Click
         return cell
     }
     

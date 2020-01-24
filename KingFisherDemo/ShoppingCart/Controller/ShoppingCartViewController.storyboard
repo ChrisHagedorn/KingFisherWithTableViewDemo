@@ -15,36 +15,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lza-u3-FGd" customClass="ShoppingCartHeader" customModule="KingFisherDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="375" height="115"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have nothing in your cart!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gby-Hu-xYB">
+                                <rect key="frame" x="0.0" y="388" width="375" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89B-sD-RUP">
+                                <rect key="frame" x="0.0" y="44" width="375" height="614"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="89B-sD-RUP">
-                                <rect key="frame" x="0.0" y="167" width="375" height="404"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingCartTableViewCell" id="PGm-IR-Yfn" customClass="ShoppingCartTableViewCell" customModule="KingFisherDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ShoppingCartTableViewCell" rowHeight="100" id="PGm-IR-Yfn" customClass="ShoppingCartTableViewCell" customModule="KingFisherDemo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PGm-IR-Yfn" id="aU0-x5-Ddo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pb-hs-Sbu" customClass="ShoppingCartFooter" customModule="KingFisherDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="579" width="375" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pb-hs-Sbu" customClass="ShoppingCartFooter" customModule="KingFisherDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="658" width="375" height="120"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="ajO-Ow-1eH"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="89B-sD-RUP" firstAttribute="trailing" secondItem="f6T-jd-6S8" secondAttribute="trailing" id="7gm-1Z-fEu"/>
+                            <constraint firstItem="f6T-jd-6S8" firstAttribute="trailing" secondItem="2Pb-hs-Sbu" secondAttribute="trailing" id="9l7-lc-VT1"/>
+                            <constraint firstItem="89B-sD-RUP" firstAttribute="top" secondItem="f6T-jd-6S8" secondAttribute="top" id="F1d-EO-oGX"/>
+                            <constraint firstItem="f6T-jd-6S8" firstAttribute="bottom" secondItem="2Pb-hs-Sbu" secondAttribute="bottom" id="Zq5-yz-OLY"/>
+                            <constraint firstItem="89B-sD-RUP" firstAttribute="leading" secondItem="f6T-jd-6S8" secondAttribute="leading" id="fFp-fV-baL"/>
+                            <constraint firstItem="2Pb-hs-Sbu" firstAttribute="top" secondItem="89B-sD-RUP" secondAttribute="bottom" id="kf9-O9-xbA"/>
+                            <constraint firstItem="2Pb-hs-Sbu" firstAttribute="leading" secondItem="M2E-bn-Vzt" secondAttribute="leading" id="yI7-WL-y81"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="f6T-jd-6S8"/>
                     </view>
                     <connections>
+                        <outlet property="emptyLabel" destination="gby-Hu-xYB" id="5bH-sc-Otu"/>
+                        <outlet property="footerView" destination="2Pb-hs-Sbu" id="4jK-ov-L2j"/>
                         <outlet property="tableView" destination="89B-sD-RUP" id="ZaX-n6-8Lr"/>
                     </connections>
                 </viewController>

@@ -14,6 +14,23 @@ extension UIImageView {
         guard let url = url, let nsurl = URL(string: url) else { return }
         kf.setImage(with: ImageResource(downloadURL: nsurl), placeholder: placeholder)
     }
+    
+    func makeRounded() {
+
+        self.layer.borderWidth = 1
+        self.layer.masksToBounds = true
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = self.frame.height / 2
+        self.clipsToBounds = true
+    }
+    
+    func makeShadow() {
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0, height: 1)
+        self.layer.shadowOpacity = 1
+        self.layer.shadowRadius = 1.0
+    }
+    
 }
 
 extension UIView {

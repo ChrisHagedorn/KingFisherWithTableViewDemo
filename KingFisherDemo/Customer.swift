@@ -29,6 +29,10 @@ class Customer {
     init() {
         
     }
+    
+    public func getCustomerEmail() -> String? {
+        return self.email
+    }
 
     
 }

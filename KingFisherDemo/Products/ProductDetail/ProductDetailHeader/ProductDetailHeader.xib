@@ -71,7 +71,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="gba-Dj-Qf6" secondAttribute="bottom" constant="24" id="6BN-be-cb9"/>
                                 <constraint firstItem="gba-Dj-Qf6" firstAttribute="leading" secondItem="X4G-r4-UeD" secondAttribute="leading" constant="24" id="ItY-lV-7J9"/>
@@ -84,18 +84,18 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJy-2L-dtN">
                                     <rect key="frame" x="24" y="24" width="151" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qox-if-CKk">
                                     <rect key="frame" x="199" y="24" width="191" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="15"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="dJy-2L-dtN" firstAttribute="top" secondItem="kV8-d2-0Dr" secondAttribute="top" constant="24" id="2gt-ie-cbk"/>
                                 <constraint firstAttribute="bottom" secondItem="dJy-2L-dtN" secondAttribute="bottom" constant="24" id="51u-jK-4Qs"/>
@@ -112,12 +112,12 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUX-Pg-x9C">
                                     <rect key="frame" x="24" y="24" width="366" height="20.5"/>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="tUX-Pg-x9C" firstAttribute="leading" secondItem="Vij-mY-IQc" secondAttribute="leading" constant="24" id="7hT-jK-9gA"/>
                                 <constraint firstAttribute="trailing" secondItem="tUX-Pg-x9C" secondAttribute="trailing" constant="24" id="A02-v3-tf5"/>
@@ -130,6 +130,7 @@
                         <constraint firstItem="oWI-MY-yqI" firstAttribute="leading" secondItem="X4G-r4-UeD" secondAttribute="leading" id="Zqs-Ws-EcT"/>
                         <constraint firstItem="X4G-r4-UeD" firstAttribute="leading" secondItem="kV8-d2-0Dr" secondAttribute="leading" id="aXr-rS-UhZ"/>
                         <constraint firstItem="W3c-7x-coV" firstAttribute="leading" secondItem="oWI-MY-yqI" secondAttribute="leading" id="pHC-Pc-7OW"/>
+                        <constraint firstItem="kV8-d2-0Dr" firstAttribute="centerY" secondItem="tfL-g6-uyn" secondAttribute="centerY" id="zoT-aS-ead"/>
                     </constraints>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqf-0n-Hhi" customClass="CustomButton" customModule="KingFisherDemo" customModuleProvider="target">
@@ -146,7 +147,7 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Rqf-0n-Hhi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Khb-3u-Noo"/>
                 <constraint firstItem="tfL-g6-uyn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qyn-Vl-d64"/>

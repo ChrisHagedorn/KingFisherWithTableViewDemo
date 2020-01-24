@@ -39,7 +39,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.94117909669876099" green="0.94117647409439087" blue="0.94116842746734619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="64" id="Wlz-DW-BIo"/>
                             </constraints>
@@ -74,7 +74,7 @@
                                 </label>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jTP-4f-7ey">
                                     <rect key="frame" x="0.0" y="322.5" width="375" height="128"/>
-                                    <color key="backgroundColor" red="0.94117909669876099" green="0.94117647409439087" blue="0.94116842746734619" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="128" id="uo9-yh-1kt"/>
                                     </constraints>
@@ -92,7 +92,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="BNj-kb-v7O" secondAttribute="bottom" constant="16" id="74z-3y-3WB"/>
                                 <constraint firstItem="Pi1-wp-Ult" firstAttribute="leading" secondItem="uhF-At-MIC" secondAttribute="leading" constant="16" id="I4c-si-Yhi"/>
