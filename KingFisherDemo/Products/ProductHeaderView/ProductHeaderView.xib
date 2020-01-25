@@ -25,9 +25,8 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DL-xV-Id1" userLabel="Logo">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1j-eY-aWI">
-                                    <rect key="frame" x="287" y="21" width="66" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1j-eY-aWI">
+                                    <rect key="frame" x="213" y="24" width="146" height="24"/>
                                     <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                     <size key="titleShadowOffset" width="0.0" height="-1"/>
@@ -38,10 +37,23 @@
                                         <action selector="shoppingCart:" destination="-1" eventType="touchUpInside" id="pWz-bq-LFh"/>
                                     </connections>
                                 </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GG-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="694-EI-cOS">
+                                    <rect key="frame" x="8" y="8" width="125" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="125" id="iWF-u8-T1b"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <constraints>
+                                <constraint firstItem="694-EI-cOS" firstAttribute="top" secondItem="1DL-xV-Id1" secondAttribute="topMargin" id="80u-rj-2lH"/>
+                                <constraint firstItem="694-EI-cOS" firstAttribute="centerY" secondItem="1DL-xV-Id1" secondAttribute="centerY" id="Cxm-gf-Aoz"/>
+                                <constraint firstItem="f1j-eY-aWI" firstAttribute="top" secondItem="1DL-xV-Id1" secondAttribute="top" constant="24" id="K5a-MA-Up4"/>
+                                <constraint firstItem="694-EI-cOS" firstAttribute="leading" secondItem="1DL-xV-Id1" secondAttribute="leadingMargin" id="ThR-eF-K7F"/>
                                 <constraint firstAttribute="height" constant="64" id="Wlz-DW-BIo"/>
+                                <constraint firstAttribute="bottom" secondItem="f1j-eY-aWI" secondAttribute="bottom" constant="16" id="jJK-t5-LgI"/>
+                                <constraint firstItem="f1j-eY-aWI" firstAttribute="leading" secondItem="694-EI-cOS" secondAttribute="trailing" constant="80" id="oNG-1b-ltd"/>
+                                <constraint firstAttribute="trailing" secondItem="f1j-eY-aWI" secondAttribute="trailing" constant="16" id="ynZ-Rc-WNM"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXh-kV-jRQ" userLabel="Search">
@@ -92,7 +104,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="BNj-kb-v7O" secondAttribute="bottom" constant="16" id="74z-3y-3WB"/>
                                 <constraint firstItem="Pi1-wp-Ult" firstAttribute="leading" secondItem="uhF-At-MIC" secondAttribute="leading" constant="16" id="I4c-si-Yhi"/>
@@ -123,6 +135,7 @@
         </view>
     </objects>
     <resources>
+        <image name="GG-Logo" width="1500" height="600"/>
         <image name="google.png" width="18" height="18"/>
     </resources>
 </document>

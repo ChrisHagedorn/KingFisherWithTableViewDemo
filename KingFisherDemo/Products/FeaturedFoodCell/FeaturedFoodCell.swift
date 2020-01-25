@@ -17,5 +17,9 @@ class FeaturedFoodCell: UICollectionViewCell {
     }
     
     @IBOutlet weak var foodImageView: UIImageView!
+    
+    override func awakeFromNib() {
+        foodImageView.makeShadow()
+    }
 
 }

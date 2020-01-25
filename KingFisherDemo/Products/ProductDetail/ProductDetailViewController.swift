@@ -97,29 +97,37 @@ class ProductDetailViewController: UIViewController {
     }
     
     func getSimilarProduct() {
-        Database.database().reference().child("products")
-            .observeSingleEvent(of: .value, with: { [weak self] (snapshot) in
-                guard let rawData = snapshot.value as? [String: AnyObject] else { return }
-                let products = Array(rawData.values)
-                    .map({ return Product(rawData: $0) })
-                    .filter({ return $0.productId != self?.data?.productId })
-                
-                var result = products.filter({ return $0.productHealth == self?.data?.productHealth })
-                if result.count >= 4 {
-                    result = Array(result[0...3])
-                } else {
-                    let restCount = 4 - result.count
-                    let resultIds = result.compactMap({ return $0.productId })
-                    
-                    var rest = products.filter({ return resultIds.contains($0.productId!) == false })
-                    rest = Array(products[0..<restCount])
-                    
-                    print(rest.map({ return $0.productId }))
-                    
-                    result.append(contentsOf: rest)
+        
+        guard let vcs = navigationController?.viewControllers else { return }
+        var products = [Product]()
+        for vc in vcs where vc is ProductsController {
+            let productVC = vc as! ProductsController
+            products = productVC.originalDatasource
+            break
+        }
+        
+        if let index = products.firstIndex(where: { return $0.productId == self.data?.productId }) {
+            products.remove(at: Int(index))
+        }
+        
+        var result = products.filter({ return $0.productHealth == self.data?.productHealth })
+        let count = result.count
+        if count > 4 {
+            let newResult = Array(result[0..<4])
+            footerView.datasource = newResult
+        } else {
+            for p in products {
+                let ids = result.map({ return $0.productId })
+                if result.count > 4 {
+                    footerView.datasource = result
+                    return
                 }
-                self?.footerView.datasource = result
-            })
+                
+                if ids.contains(p.productId) == false {
+                    result.append(p)
+                }
+            }
+        }
     }
     
     

@@ -85,9 +85,18 @@ class ShoppingCartTableViewCell: UITableViewCell {
     @objc func updateAmount() {
         guard let myid = Auth.auth().currentUser?.uid else { return }
         guard let productId = item?.productId else { return }
-        Database.database().reference()
+        if amountStepper.value == 0 {
+            Database.database().reference()
             .child("cart")
             .child(myid)
-            .child(productId).setValue(Int(amountStepper.value))
+                .child(productId).removeValue()
+            guard let item = item else { return }
+            hostController?.removeItem(item: item)
+        } else {
+            Database.database().reference()
+                .child("cart")
+                .child(myid)
+                .child(productId).setValue(Int(amountStepper.value))
+        }
     }
 }

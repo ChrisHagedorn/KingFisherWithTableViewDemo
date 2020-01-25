@@ -16,13 +16,15 @@ class ProductDetailHeader: UIView {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var addToCardButton: UIButton!
     
+    
     var data: Product?
     
     func setData(data: Product) {
         productName.text = data.productName
         productHealth.text = data.productHealth
-        productPrice.text = String(data.productPrice ?? 0)
+        productPrice.text = "$" + String(data.productPrice ?? 0)
         imageView.downloadImage(from: data.productImage)
+
 
         descriptionLabel.text =
                 """

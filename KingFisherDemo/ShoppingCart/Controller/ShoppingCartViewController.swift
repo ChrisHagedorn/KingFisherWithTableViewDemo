@@ -84,7 +84,11 @@ class ShoppingCartViewController: UIViewController, UITableViewDelegate, UITable
         getData()
     }
     
-    
+    func removeItem(item: CartItem) {
+        guard let index = datasource.firstIndex(where: { return item.productId == $0.productId
+        }) else { return }
+        datasource.remove(at: index)
+    }
     
     func getData() {
         guard let myId = Auth.auth().currentUser?.uid else { return }

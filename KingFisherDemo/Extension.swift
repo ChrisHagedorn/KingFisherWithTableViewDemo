@@ -16,7 +16,7 @@ extension UIImageView {
     }
     
     func makeRounded() {
-
+        
         self.layer.borderWidth = 1
         self.layer.masksToBounds = true
         self.layer.borderColor = UIColor.black.cgColor
@@ -30,6 +30,7 @@ extension UIImageView {
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 1.0
     }
+    
     
 }
 
