@@ -34,10 +34,10 @@ class OrderInfoController: UITableViewController {
         }
         
         let builder = MCOMessageBuilder()
-        builder.header.to = [MCOAddress(displayName: "\(nameInput.text!)", mailbox: "hagedornc@ismanila.org")]
-        builder.header.from = MCOAddress(displayName: "Makati Green Groceer", mailbox: "GreenGrocery@green.com")
+        builder.header.to = [MCOAddress(displayName: "\(nameInput.text!)", mailbox: "\(adressInput.text)")]
+        builder.header.from = MCOAddress(displayName: "Makati Green Grocer", mailbox: "greengroceryphilippines@gmail.com")
         builder.header.subject = "Order Confrimation"
-        builder.htmlBody = "/<p>\(nameInput.text!), \(itemsInCart)</p>" //TODO: Maybe make this customizable?
+        builder.htmlBody = "/<p>Dear \(nameInput.text!), thank you for placing an order with Makati Green Grocer.</p>"
         
         
         

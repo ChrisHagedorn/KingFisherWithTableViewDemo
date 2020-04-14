@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3B6C68A0719E998403048810 /* Pods_KingFisherDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06B3C2855E945BF99A7070FF /* Pods_KingFisherDemo.framework */; };
+		B904923023DD323A00765705 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B904922F23DD323A00765705 /* LaunchScreenController.swift */; };
+		B904923223DD3B9D00765705 /* LaunchScreenController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B904923123DD381400765705 /* LaunchScreenController.storyboard */; };
 		B904ED4422E9956300A27C82 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B904ED4322E9956200A27C82 /* GoogleService-Info.plist */; };
 		B92BD0EF23D0752C00A0512C /* Pods_KingFisherDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B92BD0EE23D0752C00A0512C /* Pods_KingFisherDemo.framework */; };
 		B92BD0FD23D0807500A0512C /* ProductDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B92BD0FC23D0807500A0512C /* ProductDetail.storyboard */; };
@@ -137,6 +139,8 @@
 		06B3C2855E945BF99A7070FF /* Pods_KingFisherDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KingFisherDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46F58D2AD44DE46A2ADEF5F2 /* Pods-KingFisherDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingFisherDemo.debug.xcconfig"; path = "Target Support Files/Pods-KingFisherDemo/Pods-KingFisherDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		9A4497FC8F5A5B77E9CB46A3 /* Pods-KingFisherDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KingFisherDemo.release.xcconfig"; path = "Target Support Files/Pods-KingFisherDemo/Pods-KingFisherDemo.release.xcconfig"; sourceTree = "<group>"; };
+		B904922F23DD323A00765705 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		B904923123DD381400765705 /* LaunchScreenController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreenController.storyboard; path = /Users/chrishagedorn/Desktop/xCode/KingFisherDemo/KingFisherDemo/LaunchScreenController.storyboard; sourceTree = "<absolute>"; };
 		B904ED4322E9956200A27C82 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B92BD0EE23D0752C00A0512C /* Pods_KingFisherDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_KingFisherDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B92BD0FC23D0807500A0512C /* ProductDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductDetail.storyboard; sourceTree = "<group>"; };
@@ -235,6 +239,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B904923423DD3BDC00765705 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				B904922F23DD323A00765705 /* LaunchScreenController.swift */,
+				B904923123DD381400765705 /* LaunchScreenController.storyboard */,
+				B932BD5222E5B6F800A6ADC6 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		B92BD13B23D090D100A0512C /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,9 +293,9 @@
 				B98E1B4023062D6F001B8944 /* ShoppingCart */,
 				B932BD4D22E5B6F600A6ADC6 /* Main.storyboard */,
 				B96836AB230D09D100832D8F /* TabBarController.swift */,
+				B904923423DD3BDC00765705 /* LaunchScreen */,
 				B9B8F32B2318A78A00E3CC81 /* Login */,
 				B932BD5022E5B6F800A6ADC6 /* Assets.xcassets */,
-				B932BD5222E5B6F800A6ADC6 /* LaunchScreen.storyboard */,
 				B932BD5522E5B6F800A6ADC6 /* Info.plist */,
 				B904ED4322E9956200A27C82 /* GoogleService-Info.plist */,
 				B9C1090323014C2F00722308 /* Extension.swift */,
@@ -677,6 +691,7 @@
 				B973C878230E2E7600CA9319 /* CategoriesDetail.storyboard in Resources */,
 				B9C1090223014B8900722308 /* FeaturedFoodCell.xib in Resources */,
 				B98E1B4A23062E1F001B8944 /* ShoppingCartHeader.xib in Resources */,
+				B904923223DD3B9D00765705 /* LaunchScreenController.storyboard in Resources */,
 				B98E1B4C23062E35001B8944 /* ShoppingCartFooter.xib in Resources */,
 				B9D5C9DE23D5AE7900CD1BF8 /* ProductDetailFooterCell.xib in Resources */,
 				B994CB0F2310C82400C838B1 /* OrderInfoController.storyboard in Resources */,
@@ -780,6 +795,7 @@
 				B932BD4C22E5B6F600A6ADC6 /* ViewController.swift in Sources */,
 				B973C87B230E2FB000CA9319 /* CategoriesDetailCell.swift in Sources */,
 				B98E1B4623062DF2001B8944 /* ShoppingCartHeader.swift in Sources */,
+				B904923023DD323A00765705 /* LaunchScreenController.swift in Sources */,
 				B9ED293A22E6EDE9006E0CEE /* ProductCell.swift in Sources */,
 				B9ED293C22E6EE10006E0CEE /* Product.swift in Sources */,
 				B9D1AF142309029900CD1A23 /* ShoppingCartViewController.swift in Sources */,

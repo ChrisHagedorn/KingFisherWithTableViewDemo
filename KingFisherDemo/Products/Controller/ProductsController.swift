@@ -16,12 +16,18 @@ class DataStore {
 
 class ProductsController: UITableViewController {
     @IBOutlet weak var headerView: ProductHeaderView!
+    @IBOutlet weak var nullSearch: UILabel!
     
     var ref: DatabaseReference!
     var databaseHandle:DatabaseHandle?
     var datasource = [Product]() { didSet {
         tableView.reloadData()
         DataStore.products = datasource
+        if datasource.isEmpty{
+            nullSearch.isHidden = false
+        } else {
+            nullSearch.isHidden = true
+        }
         }
     }
     var isSearching = false
@@ -29,7 +35,7 @@ class ProductsController: UITableViewController {
     var originalDatasource = [Product]()
     
     override func viewDidLoad() {
-        
+        nullSearch.isHidden = true
         super.viewDidLoad()
         title = "The Green Grocer"
         setupView()
@@ -40,7 +46,7 @@ class ProductsController: UITableViewController {
         //Set database reference
         getData()
         
-       
+        
         
         
     }
@@ -65,7 +71,6 @@ class ProductsController: UITableViewController {
             self.datasource.sort(by: { ($0.productHealth ?? "") < ($1.productHealth ?? "") })
         }))
         
-        
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(controller, animated: true)
     }
@@ -78,7 +83,7 @@ class ProductsController: UITableViewController {
                 self?.datasource = products
                 self?.originalDatasource = products
                 completion()
-        })
+            })
     }
     
     
@@ -129,15 +134,15 @@ extension ProductsController: UISearchBarDelegate {
                 $0.productName?.lowercased().contains(searchText.lowercased()) == true
         })
         
-        
         datasource = filteredData
+        
     }
 }
 
 
 extension ProductsController {
-
-
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datasource.count
     }
@@ -148,13 +153,7 @@ extension ProductsController {
         cell.setProduct(product: product)
         
         //Shadow of cell.
-        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowRadius = 5
-
-        cell.layer.shadowOpacity = 0.40
-        cell.layer.masksToBounds = false;
-        cell.clipsToBounds = false;
+        
         return cell
     }
     
@@ -168,16 +167,17 @@ extension ProductsController {
         return 325
     }
     
-//    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 10
-//    }
+    //    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    //        return 10
+    //    }
     
-
+    
 }
 
 
 extension ProductsController: ProductHeaderDelegate {
     func didTapShoppingCart() {
+        
         let controller = ShoppingCartViewController.create()
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)

@@ -54,12 +54,12 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         
         
-        if Auth.auth().currentUser != nil {
-            // show home screen
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
-            window?.rootViewController = vc
-        }
-        
+//        if Auth.auth().currentUser != nil { //Log the user in if they had previously logged in.
+//            // show home screen
+//            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarController")
+//            window?.rootViewController = vc
+//        }
+
         return true
     }
     
@@ -83,7 +83,7 @@ class Login: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let email = user.profile.email
             print(fullName!)
             print(email!)
-            var currentCustomer = Customer(userId: userId!, idToken: idToken!, fullName: fullName!, givenName: givenName!, familyName: familyName!, email: email!)
+           // var currentCustomer = Customer(userId: userId!, idToken: idToken!, fullName: fullName!, givenName: givenName!, familyName: familyName!, email: email!)
             
         }
         

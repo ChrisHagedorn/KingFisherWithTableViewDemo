@@ -26,6 +26,9 @@ class LoginInController: UIViewController {
         // Add sign out button
         let signOut = UIButton(frame: CGRect(x: 50, y: 50, width: 100, height: 30))
         signOut.backgroundColor = UIColor.red
+        signOut.layer.cornerRadius = 5
+        signOut.layer.borderWidth = 1
+        signOut.layer.borderColor = UIColor.black.cgColor
         signOut.setTitle("Sign Out", for: .normal)
         signOut.center = view.center
         signOut.center.y = view.center.y + 100

@@ -24,5 +24,14 @@ class ProductCell: UITableViewCell {
         productPrice.text = ("$\(String(product.productPrice ?? 0))")
         productHealth.text = product.productHealth
     }
+    override func awakeFromNib() {
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 5
+
+        self.layer.shadowOpacity = 0.40
+        self.layer.masksToBounds = false;
+        self.clipsToBounds = false;
+    }
     
 }

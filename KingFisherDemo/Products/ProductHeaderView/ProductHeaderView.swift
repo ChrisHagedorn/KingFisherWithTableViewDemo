@@ -16,6 +16,7 @@ class ProductHeaderView: UIView {
     
     
     @IBAction func shoppingCart(_ sender: UIButton) { //Shopping Cart Segue
+        shoppingCart.startAnimatingPressActions()
         delegate?.didTapShoppingCart()
     }
     

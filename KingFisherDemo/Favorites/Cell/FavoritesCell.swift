@@ -19,12 +19,19 @@ class FavoritesCell: UITableViewCell {
         
         super.awakeFromNib()
         // Initialization code
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowRadius = 5
+
+        self.layer.shadowOpacity = 0.40
+        self.layer.masksToBounds = false;
+        self.clipsToBounds = false;
     }
 
     func setProduct(product: Product){
         productImageView.downloadImage(from: product.productImage)
         productName.text = product.productName
-        productPrice.text = String(product.productPrice ?? 0)
+        productPrice.text = "$" + String(product.productPrice ?? 0)
         productHealth.text = product.productHealth
     }
     

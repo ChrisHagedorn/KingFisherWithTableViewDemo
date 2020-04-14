@@ -26,6 +26,7 @@ class ProductDetailHeader: UIView {
         imageView.downloadImage(from: data.productImage)
 
 
+
         descriptionLabel.text =
                 """
                 Learning to code is incredibly rewarding but can also be difficult and frustrating. The strongest assets you can have as a student are a desire to build, a problem-solving mind, and persistence in the face of setbacks.
@@ -39,6 +40,8 @@ class ProductDetailHeader: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         xibSetup()
+        imageView.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        imageView.layer.borderWidth = 1
         
     }
     

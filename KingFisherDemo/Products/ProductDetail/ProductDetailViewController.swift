@@ -31,10 +31,11 @@ class ProductDetailViewController: UIViewController {
         }}
     
     
-    var favoriteButton = UIButton()
+    var favoriteButton = UIButton(frame: CGRect(x: 0, y: 0, width: 150, height: 20))
     
     
     @IBAction func addToFavorites() {
+        favoriteButton.startAnimatingPressActions()
         isFavorite = !isFavorite
         ref = Database.database().reference().child("favourites")
         guard let userKey = Auth.auth().currentUser?.uid else {return}
@@ -64,20 +65,28 @@ class ProductDetailViewController: UIViewController {
     
     func updateFavoriteIcon() {
         if isFavorite {
-            favoriteButton.backgroundColor = .red
-            
+            favoriteButton.backgroundColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+            favoriteButton.setTitle("Remove from Favorites", for: .normal)
+
         } else {
-            favoriteButton.backgroundColor = .blue
+            favoriteButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            favoriteButton.setTitle("Add to Favorites", for: .normal)
         }
     }
     
     func setupView() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: favoriteButton)
+        favoriteButton.titleLabel!.font =  UIFont.systemFont(ofSize: 12)
+        favoriteButton.layer.cornerRadius = 8
+        favoriteButton.layer.borderWidth = 1
+        favoriteButton.layer.borderColor = UIColor.darkGray.cgColor
+        
         favoriteButton.addTarget(self, action: #selector(addToFavorites), for: .touchUpInside)
         headerView.addToCardButton.addTarget(self, action: #selector(addToCart), for: .touchUpInside)
     }
     
     @objc func addToCart() {
+        headerView.addToCardButton.startAnimatingPressActions()
         guard let myid = Auth.auth().currentUser?.uid else { return }
         guard let productId = data?.productId else { return }
         // cart: product 1 (2), 2 (1), 3 (4)
@@ -93,7 +102,22 @@ class ProductDetailViewController: UIViewController {
                     .child(myid)
                     .child("product_" + String(productId)).setValue(count)
                 
+                
         }
+        didAddToCart()
+    }
+    
+    func didAddToCart(){
+        let message = "You have added \(data?.productName! ?? "the item") to the cart."
+        let alertController = UIAlertController(
+                title: "", // This gets overridden below.
+                message: message,
+                preferredStyle: .alert
+         )
+        let okAction = UIAlertAction(title: "OK", style: .cancel) { _ -> Void in
+         }
+         alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func getSimilarProduct() {
